@@ -1,5 +1,5 @@
 #' housing_tab UI Function
-#'
+#' @export
 #' @noRd
 mod_housing_ui <- function(id) {
   ns <- shiny::NS(id)

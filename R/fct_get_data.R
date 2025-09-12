@@ -3,6 +3,7 @@
 #' @description This function pulls data from the daily enrollment pin.
 #'
 #' @return Returns a data frame from the daily enrollment pin.
+#' @export
 #'
 get_data_from_pin <- function() {
 

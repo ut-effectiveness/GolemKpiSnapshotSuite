@@ -1,3 +1,11 @@
+#' get_value_box_data
+#'
+#' @param data
+#' @param rows
+#'
+#' @returns
+#' @export
+#'
 get_value_box_data = function(data, rows){
 
   # Going to change moving forward

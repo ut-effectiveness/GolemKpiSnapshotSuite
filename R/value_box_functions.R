@@ -1,5 +1,16 @@
 # --- Generic Helper Functions ---
 
+#' Title
+#'
+#' @param data a data frame with a single row
+#' @param var_name the name of the variable to use
+#' @param threshold the threshold value to compare against
+#' @param neg a string to display if the value is above the threshold
+#' @param pos a string to display if the value is below the threshold
+#'
+#' @returns
+#' @export
+#'
 get_val_box_goal_generic <- function(data, var_name, threshold = 0, neg = " still needed ", pos = " ahead ") {
   value <- data[[var_name]]
 
@@ -25,6 +36,15 @@ get_val_box_title_generic <- function(data, var_name, scale = 100, prefix = TRUE
   }
 }
 
+#' get_val_box_arrow_generic
+#'
+#' @param data a data frame with a single row
+#' @param var_name the name of the variable to use
+#' @param threshold the threshold value to compare against
+#'
+#' @returns a bsicon
+#' @export
+#'
 get_val_box_arrow_generic <- function(data, var_name, threshold = 0) {
   change <- data[[var_name]]
   if (change > threshold) {
@@ -36,6 +56,15 @@ get_val_box_arrow_generic <- function(data, var_name, threshold = 0) {
   }
 }
 
+#' get_val_box_text_class_generic
+#'
+#' @param data a data frame with a single row
+#' @param var_name the name of the variable to use
+#' @param threshold the threshold value to compare against
+#'
+#' @returns a text class
+#' @export
+#'
 get_val_box_text_class_generic <- function(data, var_name, threshold = 0) {
   change <- data[[var_name]]
   if (change > threshold) {
@@ -47,6 +76,15 @@ get_val_box_text_class_generic <- function(data, var_name, threshold = 0) {
   }
 }
 
+#' get_val_box_color_generic
+#'
+#' @param data a data frame with a single row
+#' @param var_name the name of the variable to use
+#' @param threshold the threshold value to compare against
+#'
+#' @returns a theme color
+#' @export
+#'
 get_val_box_color_generic <- function(data, var_name, threshold = 0) {
   change <- data[[var_name]]
   if (change > threshold) {
@@ -119,6 +157,15 @@ Retention = list(
 
 # --- Main Function ---
 
+#' get_value_box
+#'
+#' @param data a data frame with a single row
+#' @param metric the metric to display
+#' @param lookup a data frame with two columns: metric and test
+#'
+#' @returns A value box
+#' @export
+#'
 get_value_box <- function(data, metric, lookup) {
   data <- data[[metric]]
   type <- lookup[lookup[[1]] == metric, ][["test"]]
