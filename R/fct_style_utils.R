@@ -30,7 +30,12 @@ title_logo = function() {
   )
 }
 
-#' Create custom litera theme
+
+#' Litera Bootstrap Theme for Shiny UI
+#'
+#' @return A bslib theme object using the Litera Bootswatch theme.
+#' @export
+#'
 litera_theme = function() {
   bslib::bs_theme(
     bootswatch = "litera",
