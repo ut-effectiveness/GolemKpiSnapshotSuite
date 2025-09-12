@@ -1,0 +1,13 @@
+Package: GolemKpiSnapshotSuite
+Type: Package
+Title: Shared Golem Modules and KPI Snapshot Utilities
+Version: 0.0.0009
+Authors@R: person("Craig Demke", email = "craig.demke@utahtech.edu", role = c("aut", "cre"))
+Description: Shared modules, utilities, and templates for mobile cabinet KPI Shiny apps.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+    shiny,
+    golem
+RoxygenNote: 7.3.2

@@ -1,0 +1,11 @@
+.Rproj.user
+R/app_config.R
+.Renviron
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto
+*.html
+sensitive
+.RData
