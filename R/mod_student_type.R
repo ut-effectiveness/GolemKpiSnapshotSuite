@@ -5,6 +5,7 @@
 #' @param id,input,output,session Internal parameters for {shiny}.
 #'
 #' @noRd
+#' @export
 #'
 #' @importFrom shiny NS tagList
 mod_student_type_ui <- function(id) {

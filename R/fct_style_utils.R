@@ -5,7 +5,7 @@
 #' Returns UT logo with correct dimensions for app title.
 #'
 #' @return The return value, if any, from executing the function.
-#'
+#' @export
 #' @noRd
 
 title_logo = function() {

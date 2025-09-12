@@ -3,6 +3,7 @@
 #' @param   path   Scalar character. The filepath to the data to be imported.
 #'
 #' @return   A `file_importer` object (parent: `data_importer`) to be used when importing data.
+#' @export
 
 file_importer <- function(path) {
   x <- structure(
@@ -20,6 +21,7 @@ file_importer <- function(path) {
 #'
 #' @return   A `pin_importer` object (parent: `data_importer`) to be used when importing data from
 #'   the pin.
+#' @export
 
 pin_importer <- function(board, name) {
   x <- structure(
