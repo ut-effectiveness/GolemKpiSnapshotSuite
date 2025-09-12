@@ -1,0 +1,22 @@
+default:
+  golem_name: mobileCabinetKpi
+  golem_version: 0.0.0.9000
+  app_prod: no
+  value_boxes: ["Total Degree Seeking", "Freshman",
+                  "Continuing Registration", "Transfer"]
+  main_tab_value_boxes: ["University Wide", "FTE", "Concurrent", "Not Concurrent"]
+  student_tab_value_boxes: ["Freshman", "Continuing Registration",
+                            "Transfer", "Readmit"]
+  retention_tab_value_boxes: ["Freshman Bachelor's",
+                              "Freshman Other",
+                              "Transfer Bachelor's",
+                              "Transfer Other"]
+  ipeds_tab_value_boxes: ["Minority","Hispanic", "Unspecified", "White"]
+  housing_tab_value_boxes: ["Previous Year Comparison","Active Fill Rate","Current Only Fill Rate","Historical Fill Rate"]
+  connect_server: !expr Sys.getenv("CONNECT_SERVER", "https://connect.ie.utahtech.edu")
+  connect_account: !expr Sys.getenv("CONNECT_ACCOUNT", "rsconnectapi!service")
+  connect_api_key: !expr Sys.getenv("RSCONNECT_SERVICE_USER_API_KEY", keyring::key_get("pins"))
+production:
+  app_prod: yes
+dev:
+  golem_wd: !expr here::here()

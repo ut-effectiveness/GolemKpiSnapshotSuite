@@ -9,3 +9,4 @@ R/app_config.R
 *.html
 sensitive
 .RData
+inst/golem-config.yml
