@@ -10,7 +10,7 @@
 #' keyring entry.
 #'
 #' If running on Connect, the server/account/key information is not used.
-#'
+#' @export
 #' @return   A {pins} board object
 get_pins_board <- function() {
   if (is_connect()) {
@@ -26,6 +26,7 @@ get_pins_board <- function() {
 
 #' Is the app running on Connect?
 #'
+#' @export
 #' @return   Boolean. TRUE if the app is running on a Connect server.
 
 is_connect <- function() {
