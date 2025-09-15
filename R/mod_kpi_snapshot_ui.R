@@ -1,7 +1,7 @@
 #' KPI Snapshot UI Module
-#' @export
 #' @param id module id
 #' @importFrom shiny NS tagList uiOutput
+#' @export
 kpi_snapshot_inner_ui <- function(id) {
   ns <- NS(id)
   tagList(
@@ -9,6 +9,11 @@ kpi_snapshot_inner_ui <- function(id) {
     uiOutput(ns("plots_ui"))
   )
 }
+
+#' mod_kpi_snapshot_ui
+#' @param id module id
+#' @importFrom shiny NS tagList uiOutput
+#' @export
 mod_kpi_snapshot_ui <- function(id, custom_ui = NULL) {
   ns <- shiny::NS(id)
   shiny::tagList(
