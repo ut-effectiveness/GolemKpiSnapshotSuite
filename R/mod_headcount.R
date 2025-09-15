@@ -6,7 +6,7 @@
 #'
 #' @noRd
 #' @export
-#'
+#' @import shiny
 #' @importFrom shiny NS tagList
 mod_headcount_ui <- function(id) {
   ns <- NS(id)

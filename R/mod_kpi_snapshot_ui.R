@@ -1,4 +1,5 @@
 #' KPI Snapshot UI Module
+#' @import shiny
 #' @export
 mod_kpi_snapshot_ui <- function(id, custom_ui = NULL) {
   ns <- shiny::NS(id)

@@ -1,4 +1,5 @@
 #' KPI Snapshot Server Module
+#' @import shiny
 #' @export
 mod_kpi_snapshot_server <- function(id, custom_server = NULL) {
   moduleServer(id, function(input, output, session) {
