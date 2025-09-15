@@ -4,7 +4,12 @@
 \alias{get_pins_board}
 \title{Access the pins board that contains data for this app}
 \usage{
-get_pins_board()
+get_pins_board(
+  config_file = NULL,
+  server_key = "connect_server",
+  account_key = "connect_account",
+  api_key_key = "connect_api_key"
+)
 }
 \value{
 A {pins} board object

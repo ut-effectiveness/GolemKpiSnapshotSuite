@@ -12,16 +12,45 @@
 #' If running on Connect, the server/account/key information is not used.
 #' @export
 #' @return   A {pins} board object
-get_pins_board <- function() {
-  if (is_connect()) {
-    return(pins::board_connect())
+get_pins_board <- function(
+  config_file = NULL,
+  server_key = "connect_server",
+  account_key = "connect_account",
+  api_key_key = "connect_api_key"
+) {
+  # 1. Resolve config file
+  resolve_config <- function() {
+    # explicit param
+    if (!is.null(config_file) && file.exists(config_file)) return(config_file)
+    # env var override
+    env_path <- Sys.getenv("GOLEM_KPI_CONFIG_FILE", "")
+    if (nzchar(env_path) && file.exists(env_path)) return(env_path)
+    # this package's own
+    self <- system.file("golem-config.yml", package = "GolemKpiSnapshotSuite")
+    if (nzchar(self) && file.exists(self)) return(self)
+    # look through loaded namespaces (app packages)
+    for (pkg in loadedNamespaces()) {
+      p <- system.file("golem-config.yml", package = pkg)
+      if (nzchar(p) && file.exists(p)) return(p)
+      p2 <- system.file("config.yml", package = pkg)
+      if (nzchar(p2) && file.exists(p2)) return(p2)
+    }
+    ""
   }
 
-  pins::board_connect(
-    server = get_golem_config("connect_server"),
-    account = get_golem_config("connect_account"),
-    key = get_golem_config("connect_api_key")
-  )
+  cfg_path <- resolve_config()
+  if (!nzchar(cfg_path) || !file.exists(cfg_path)) {
+    stop("No config file found (looked for golem-config.yml or config.yml in loaded packages).",
+         call. = FALSE)
+  }
+
+  getv <- function(k) config::get(k, file = cfg_path)
+
+  server  <- Sys.getenv("CONNECT_SERVER",  getv(server_key))
+  account <- Sys.getenv("CONNECT_ACCOUNT", getv(account_key))
+  api_key <- Sys.getenv("RSCONNECT_SERVICE_USER_API_KEY", getv(api_key_key))
+
+  pins::board_connect(server = server, account = account, key = api_key)
 }
 
 #' Is the app running on Connect?
