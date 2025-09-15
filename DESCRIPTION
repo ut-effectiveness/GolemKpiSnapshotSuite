@@ -7,9 +7,36 @@ Description: Shared modules, utilities, and templates for mobile cabinet KPI Shi
 License: MIT
 Encoding: UTF-8
 LazyData: true
-Imports:
-    shiny,
-    golem
+Imports: 
+    bsicons,
+    bslib,
+    config (>= 0.3.1),
+    dplyr,
+    ggplot2,
+    golem (>= 0.3.5),
+    keyring,
+    magrittr,
+    pins,
+    purrr,
+    readr,
+    rlang,
+    shiny (>= 1.7.3),
+    shinybrowser,
+    shinyjs,
+    tidyr,
+    utHelpR,
+    plotly,
+    scales,
+    tidyr,
+    DT,
+    utHelpR (>= 0.0.0.9000),
+    stringr
+Suggests:
+    here,
+    pkgload,
+    testthat (>= 3.0.0),
+    tibble,
+    withr
 RoxygenNote: 7.3.2
 URL: https://github.com/ut-effectiveness/GolemKpiSnapshotSuite
 BugReports: https://github.com/ut-effectiveness/GolemKpiSnapshotSuite/issues
