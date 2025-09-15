@@ -3,7 +3,6 @@
 #' @description A shiny Module.
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
-#' @import shiny
 #' @noRd
 #' @export
 #'
