@@ -4,7 +4,7 @@
 \alias{mod_kpi_snapshot_ui}
 \title{KPI Snapshot UI Module}
 \usage{
-mod_kpi_snapshot_ui(id)
+mod_kpi_snapshot_ui(id, custom_ui = NULL)
 }
 \description{
 KPI Snapshot UI Module

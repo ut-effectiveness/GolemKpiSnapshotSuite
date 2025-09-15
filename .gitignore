@@ -1,5 +1,4 @@
 .Rproj.user
-R/app_config.R
 .Renviron
 .Rhistory
 .Rdata
@@ -8,5 +7,4 @@ R/app_config.R
 .quarto
 *.html
 sensitive
-.RData
 inst/golem-config.yml

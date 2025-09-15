@@ -4,7 +4,7 @@
 \alias{mod_kpi_snapshot_server}
 \title{KPI Snapshot Server Module}
 \usage{
-mod_kpi_snapshot_server(id)
+mod_kpi_snapshot_server(id, custom_server = NULL)
 }
 \description{
 KPI Snapshot Server Module
