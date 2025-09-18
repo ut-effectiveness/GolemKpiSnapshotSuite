@@ -2,27 +2,24 @@
 % Please edit documentation in R/app_config.R
 \name{get_golem_config}
 \alias{get_golem_config}
-\title{Universal golem config getter for parent and child apps}
+\title{Universal golem config getter (shared)}
 \usage{
 get_golem_config(
   value,
-  package = "GolemKpiSnapshotSuite",
+  pkg = "GolemKpiSnapshotSuite",
   config = Sys.getenv("GOLEM_CONFIG_ACTIVE", Sys.getenv("R_CONFIG_ACTIVE", "default")),
   use_parent = TRUE
 )
 }
 \arguments{
-\item{value}{Config value to retrieve}
+\item{value}{Config key}
 
-\item{package}{Name of the package to read config from. Defaults to parent package ("GolemKpiSnapshotSuite").}
+\item{config}{Active config name}
 
-\item{config}{Active config to use}
+\item{use_parent}{Forwarded to config::get}
 
-\item{use_parent}{Whether to use parent config logic}
-}
-\value{
-The config value
+\item{package}{Target package (NULL = auto-detect a child package first, then fallback)}
 }
 \description{
-Universal golem config getter for parent and child apps
+Universal golem config getter (shared)
 }

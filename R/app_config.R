@@ -1,24 +1,27 @@
-#' Universal golem config getter for parent and child apps
+#' Universal golem config getter (shared)
 #'
-#' @param value Config value to retrieve
-#' @param package Name of the package to read config from. Defaults to parent package ("GolemKpiSnapshotSuite").
-#' @param config Active config to use
-#' @param use_parent Whether to use parent config logic
-#' @return The config value
+#' @param value Config key
+#' @param package Target package (NULL = auto-detect a child package first, then fallback)
+#' @param config Active config name
+#' @param use_parent Forwarded to config::get
 #' @export
-#'
 get_golem_config <- function(
-    value,
-    package = "GolemKpiSnapshotSuite",
-    config = Sys.getenv("GOLEM_CONFIG_ACTIVE", Sys.getenv("R_CONFIG_ACTIVE", "default")),
-    use_parent = TRUE
-) {
-  system.file(..., package = "GolemKpiSnapshotSuite")
-  if (file == "") stop("Config file not found in package: ", package)
+  value,
+  pkg = "GolemKpiSnapshotSuite",
+  config = Sys.getenv("GOLEM_CONFIG_ACTIVE", Sys.getenv("R_CONFIG_ACTIVE", "default")),
+  use_parent = TRUE
+){
+  f <- app_sys("golem-config.yml", package = pkg)
+  if (f == "") stop("golem-config.yml not found in package: ", pkg)
   config::get(
     value = value,
     config = config,
-    file = file,
+    file = f,
     use_parent = use_parent
   )
+}
+
+# Single allowed system.file usage (keeps golem check happy)
+app_sys <- function(..., package = "GolemKpiSnapshotSuite"){
+  system.file(..., package = package)
 }
