@@ -1,12 +1,12 @@
 #' Access files in the current app
-#'
+#' @export
 #' @noRd
 app_sys <- function(...) {
   system.file(..., package = "GolemKpiSnapshotSuite")
 }
 
 #' Read App Config
-#'
+#' @export
 #' @noRd
 get_golem_config <- function(
     value,
