@@ -22,6 +22,8 @@ get_golem_config(
 }
 \value{
 The config value
+
+The config value
 }
 \description{
 Universal golem config getter for parent and child apps
