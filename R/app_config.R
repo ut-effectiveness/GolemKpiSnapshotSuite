@@ -6,14 +6,7 @@
 #' @param use_parent Whether to use parent config logic
 #' @return The config value
 #' @export
-#' Universal golem config getter for parent and child apps
 #'
-#' @param value Config value to retrieve
-#' @param package Name of the package to read config from. Defaults to parent package ("GolemKpiSnapshotSuite").
-#' @param config Active config to use
-#' @param use_parent Whether to use parent config logic
-#' @return The config value
-#' @export
 get_golem_config <- function(
     value,
     package = "GolemKpiSnapshotSuite",
