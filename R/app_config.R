@@ -21,7 +21,7 @@ get_golem_config <- function(
   )
 }
 
-# Single allowed system.file usage (keeps golem check happy)
+# Single canonical system.file usage (required by golem name check)
 app_sys <- function(..., package = "GolemKpiSnapshotSuite"){
   system.file(..., package = package)
 }
