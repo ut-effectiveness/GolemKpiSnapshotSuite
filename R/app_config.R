@@ -2,7 +2,7 @@
 #' @export
 #' @noRd
 app_sys <- function(...) {
-  system.file(..., package = "GolemKpiSnapshotSuite")
+  file.exists(system.file("golem-config.yml", package = "GolemKpiSnapshotSuite"))
 }
 
 #' Read App Config
