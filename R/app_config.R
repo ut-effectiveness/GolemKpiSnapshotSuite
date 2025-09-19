@@ -1,34 +1,39 @@
-#' Universal golem config getter (shared)
+#' Read a config value from a CHILD package's golem-config.yml
+#'
+#' Parent package has no config; you MUST pass pkg (a child package name).
 #'
 #' @param value Config key
-#' @param pkg Package that holds the golem-config.yml (default = this package)
-#' @param config Active config name
-#' @param use_parent Forwarded to config::get
+#' @param pkg Child package name (required)
+#' @param config Active config section (env-controlled)
+#' @param use_parent Passed to config::get
+#' @return The config value
 #' @export
-#'
-
 get_golem_config <- function(
   value,
-  pkg = "GolemKpiSnapshotSuite",
+  pkg,
   config = Sys.getenv("GOLEM_CONFIG_ACTIVE", Sys.getenv("R_CONFIG_ACTIVE", "default")),
   use_parent = TRUE
 ){
-  path <- if (identical(pkg, "GolemKpiSnapshotSuite")) {
-    app_sys("golem-config.yml")
-  } else {
-    .pkg_file(pkg, "golem-config.yml")
+  if (missing(pkg) || !nzchar(pkg)) {
+    stop("Argument 'pkg' (child package name) is required.", call. = FALSE)
   }
-  if (!nzchar(path) || !file.exists(path)) {
-    stop("golem-config.yml not found in package: ", pkg, call. = FALSE)
+  ns_path <- tryCatch(getNamespaceInfo(asNamespace(pkg), "path"), error = function(e) "")
+  if (!nzchar(ns_path)) {
+    stop("Child package not installed or not loaded: ", pkg, call. = FALSE)
+  }
+  yml <- file.path(ns_path, "golem-config.yml")
+  if (!file.exists(yml)) {
+    stop("Child package has no golem-config.yml: ", pkg, call. = FALSE)
   }
   config::get(
     value = value,
     config = config,
-    file = path,
+    file = yml,
     use_parent = use_parent
   )
 }
 
+# Single required literal occurrence for golem name check
 app_sys <- function(...){
   system.file(..., package = "GolemKpiSnapshotSuite")
 }

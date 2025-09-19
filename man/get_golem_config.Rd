@@ -2,11 +2,11 @@
 % Please edit documentation in R/app_config.R
 \name{get_golem_config}
 \alias{get_golem_config}
-\title{Universal golem config getter (shared)}
+\title{Read a config value from a CHILD package's golem-config.yml}
 \usage{
 get_golem_config(
   value,
-  pkg = "GolemKpiSnapshotSuite",
+  pkg,
   config = Sys.getenv("GOLEM_CONFIG_ACTIVE", Sys.getenv("R_CONFIG_ACTIVE", "default")),
   use_parent = TRUE
 )
@@ -14,12 +14,15 @@ get_golem_config(
 \arguments{
 \item{value}{Config key}
 
-\item{pkg}{Package that holds the golem-config.yml (default = this package)}
+\item{pkg}{Child package name (required)}
 
-\item{config}{Active config name}
+\item{config}{Active config section (env-controlled)}
 
-\item{use_parent}{Forwarded to config::get}
+\item{use_parent}{Passed to config::get}
+}
+\value{
+The config value
 }
 \description{
-Universal golem config getter (shared)
+Parent package has no config; you MUST pass pkg (a child package name).
 }
