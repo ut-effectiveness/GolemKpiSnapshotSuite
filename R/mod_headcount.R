@@ -42,6 +42,8 @@ mod_headcount_ui <- function(id) {
 #' main_tab Server Functions
 #'
 #' @noRd
+#' @export
+#'
 mod_headcount_server <- function(id,
                                  device_type = "Desktop",
                                  value_box_data,

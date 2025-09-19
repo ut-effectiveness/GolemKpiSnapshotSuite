@@ -42,6 +42,7 @@ mod_retention_ui <- function(id) {
 #' main_tab Server Functions
 #'
 #' @importFrom   utils   read.csv
+#' @export
 #' @noRd
 
 mod_retention_server <- function(id,

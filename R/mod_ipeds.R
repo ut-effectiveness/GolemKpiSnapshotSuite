@@ -40,7 +40,7 @@ mod_ipeds_ui <- function(id) {
 }
 
 #' main_tab Server Functions
-#'
+#' @export
 #' @noRd
 mod_ipeds_server <- function(id,
                              device_type = "Desktop",

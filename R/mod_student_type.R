@@ -39,7 +39,7 @@ mod_student_type_ui <- function(id) {
 }
 
 #' main_tab Server Functions
-#'
+#' @export
 #' @noRd
 mod_student_type_server <- function(id,
                                     device_type = "Desktop",

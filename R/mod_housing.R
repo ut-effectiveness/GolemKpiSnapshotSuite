@@ -32,6 +32,12 @@ mod_housing_ui <- function(id) {
   )
 }
 
+
+#' housing_tab server Function
+#' @import shiny
+#' @export
+#' @noRd
+
 mod_housing_server <- function(id,
                                device_type = "Desktop",
                                value_box_data,
