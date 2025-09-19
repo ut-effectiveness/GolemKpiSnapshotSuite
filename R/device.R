@@ -1,16 +1,22 @@
-#' Detect client device type
+#' Detect client device info (robust)
 #'
-#' Uses shinybrowser (if available) to classify the client device.
-#' Falls back to "unknown" if detection not yet available.
+#' Returns a list with at least element `device` (lowercase: mobile|tablet|desktop|unknown).
+#' Safe even if shinybrowser not ready yet.
 #'
-#' @return A length-1 character value: "mobile", "tablet", "desktop", or "unknown".
+#' @return list(device = <chr>, ... possible extra fields)
 #' @export
 device <- function() {
   if (!requireNamespace("shinybrowser", quietly = TRUE)) {
-    return("unknown")
+    return(list(device = "unknown"))
   }
   info <- shinybrowser::get_device()
-  # shinybrowser::get_device() returns a list; element 'device' often "Desktop" etc.
-  if (is.null(info) || is.null(info$device)) return("unknown")
-  tolower(info$device)
+  # Not ready yet
+  if (is.null(info)) return(list(device = "unknown"))
+  # If already a list containing $device
+  if (is.list(info) && !is.null(info$device)) {
+    info$device <- tolower(info$device)
+    return(info)
+  }
+  # If atomic (character) fallback
+  return(list(device = tolower(as.character(info)[1])))
 }

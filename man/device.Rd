@@ -2,14 +2,14 @@
 % Please edit documentation in R/device.R
 \name{device}
 \alias{device}
-\title{Detect client device type}
+\title{Detect client device info (robust)}
 \usage{
 device()
 }
 \value{
-A length-1 character value: "mobile", "tablet", "desktop", or "unknown".
+list(device = <chr>, ... possible extra fields)
 }
 \description{
-Uses shinybrowser (if available) to classify the client device.
-Falls back to "unknown" if detection not yet available.
+Returns a list with at least element `device` (lowercase: mobile|tablet|desktop|unknown).
+Safe even if shinybrowser not ready yet.
 }
