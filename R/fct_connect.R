@@ -1,7 +1,13 @@
-#' Access the pins board that contains data for this app
+#' Get a pins board (RStudio Connect)
 #'
+#' Resolves a golem-config.yml (child pkg) and builds a pins board via pins::board_connect().
+#'
+#' @param config_file Optional explicit path to a config file.
+#' @param server_key Key name for the Connect server URL in config.
+#' @param account_key Key name for the Connect account in config.
+#' @param api_key_key Key name for the Connect API key in config.
+#' @return A pins board object.
 #' @export
-#' @return A pins board object
 get_pins_board <- function(
   config_file = NULL,
   server_key = "connect_server",
@@ -40,9 +46,9 @@ get_pins_board <- function(
   pins::board_connect(server = server, account = account, key = api_key)
 }
 
-#' Is the app running on Connect?
+#' Detect if running on RStudio Connect
+#' @return Logical.
 #' @export
-#' @return logical
 is_connect <- function() {
   Sys.getenv("R_CONFIG_ACTIVE", "") == "rsconnect"
 }

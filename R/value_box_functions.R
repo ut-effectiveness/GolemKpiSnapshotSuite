@@ -8,7 +8,7 @@
 #' @param neg a string to display if the value is above the threshold
 #' @param pos a string to display if the value is below the threshold
 #'
-#' @returns
+#' @returns a goal string
 #' @export
 #'
 get_val_box_goal_generic <- function(data, var_name, threshold = 0, neg = " still needed ", pos = " ahead ") {

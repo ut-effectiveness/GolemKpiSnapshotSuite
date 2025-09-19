@@ -8,7 +8,7 @@
 #' @export
 #' @import shiny
 #' @importFrom shiny NS tagList
-mod_headcount_ui <- function(id) {
+mod_headcount_ui <- function(id, custom_ui = NULL) {
   ns <- NS(id)
   bslib::nav_panel(
     title = "Main",
@@ -39,15 +39,19 @@ mod_headcount_ui <- function(id) {
   )
 }
 
-#' main_tab Server Functions
+#' Headcount module server
 #'
-#' @noRd
+#' @param id Module id.
+#' @param device_type Reactive or value describing device type.
+#' @param value_box_data Reactive providing value box data.
+#' @param plot_data Reactive providing plotting data.
+#' @param custom_server Optional function to override server internals.
 #' @export
-#'
 mod_headcount_server <- function(id,
                                  device_type = "Desktop",
                                  value_box_data,
-                                 plot_data) {
+                                 plot_data,
+                                 custom_server = NULL) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
 

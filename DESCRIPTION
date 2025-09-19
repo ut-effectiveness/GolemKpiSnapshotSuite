@@ -10,6 +10,7 @@ LazyData: true
 Imports: 
     bsicons,
     bslib,
+    glue,
     config (>= 0.3.1),
     dplyr,
     ggplot2,
@@ -24,10 +25,8 @@ Imports:
     shinybrowser,
     shinyjs,
     tidyr,
-    utHelpR,
     plotly,
     scales,
-    tidyr,
     DT,
     utHelpR (>= 0.0.0.9000),
     stringr

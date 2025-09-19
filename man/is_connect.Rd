@@ -2,13 +2,13 @@
 % Please edit documentation in R/fct_connect.R
 \name{is_connect}
 \alias{is_connect}
-\title{Is the app running on Connect?}
+\title{Detect if running on RStudio Connect}
 \usage{
 is_connect()
 }
 \value{
-logical
+Logical.
 }
 \description{
-Is the app running on Connect?
+Detect if running on RStudio Connect
 }

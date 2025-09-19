@@ -2,13 +2,18 @@
 % Please edit documentation in R/get_value_box_data.R
 \name{get_value_box_data}
 \alias{get_value_box_data}
-\title{get_value_box_data}
+\title{Transform raw metric rows into value box data}
 \usage{
 get_value_box_data(data, rows)
 }
 \arguments{
-\item{rows}{}
+\item{data}{A data.frame / tibble containing metric rows.}
+
+\item{rows}{Character vector of metric identifiers to keep.}
+}
+\value{
+A tibble with columns required by value box renderers.
 }
 \description{
-get_value_box_data
+Transform raw metric rows into value box data
 }

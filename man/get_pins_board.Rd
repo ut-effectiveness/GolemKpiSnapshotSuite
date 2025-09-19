@@ -2,7 +2,7 @@
 % Please edit documentation in R/fct_connect.R
 \name{get_pins_board}
 \alias{get_pins_board}
-\title{Access the pins board that contains data for this app}
+\title{Get a pins board (RStudio Connect)}
 \usage{
 get_pins_board(
   config_file = NULL,
@@ -11,9 +11,18 @@ get_pins_board(
   api_key_key = "connect_api_key"
 )
 }
+\arguments{
+\item{config_file}{Optional explicit path to a config file.}
+
+\item{server_key}{Key name for the Connect server URL in config.}
+
+\item{account_key}{Key name for the Connect account in config.}
+
+\item{api_key_key}{Key name for the Connect API key in config.}
+}
 \value{
-A pins board object
+A pins board object.
 }
 \description{
-Access the pins board that contains data for this app
+Resolves a golem-config.yml (child pkg) and builds a pins board via pins::board_connect().
 }

@@ -34,9 +34,13 @@ mod_housing_ui <- function(id) {
 
 
 #' housing_tab server Function
-#' @import shiny
+#'
+#' @param id Module id.
+#' @param device_type Reactive or value describing device type.
+#' @param value_box_data Reactive providing value box data.
+#' @param dt_data Reactive providing plotting data.
+#' @param custom_server Optional function to override server internals.
 #' @export
-#' @noRd
 
 mod_housing_server <- function(id,
                                device_type = "Desktop",

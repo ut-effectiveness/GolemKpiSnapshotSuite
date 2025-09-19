@@ -40,8 +40,14 @@ mod_ipeds_ui <- function(id) {
 }
 
 #' main_tab Server Functions
+#'
+#' @param id Module id.
+#' @param device_type Reactive or value describing device type.
+#' @param value_box_data Reactive providing value box data.
+#' @param plot_data Reactive providing plotting data.
+#' @param custom_server Optional function to override server internals.
 #' @export
-#' @noRd
+#'
 mod_ipeds_server <- function(id,
                              device_type = "Desktop",
                              value_box_data,
