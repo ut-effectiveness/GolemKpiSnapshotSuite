@@ -16,7 +16,7 @@ get_golem_config(
 
 \item{pkg}{Child package name (required)}
 
-\item{config}{Active config section (env-controlled)}
+\item{config}{Active config section}
 
 \item{use_parent}{Passed to config::get}
 }
@@ -25,4 +25,5 @@ The config value
 }
 \description{
 Parent package has no config; you MUST pass pkg (a child package name).
+Works for installed packages and dev (load_all) sources.
 }
