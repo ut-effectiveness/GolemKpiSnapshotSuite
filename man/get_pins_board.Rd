@@ -12,18 +12,8 @@ get_pins_board(
 )
 }
 \value{
-A {pins} board object
+A pins board object
 }
 \description{
-If running outside of Connect, this requires the {pins} server/account/key to be defined in the
-{golem} config for this app. These values are typically stored in the environment variables
-`CONNECT_SERVER`, `CONNECT_ACCOUNT` and `RSCONNECT_SERVICE_USER_API_KEY`. They are accessed from
-the fields `connect_server`, `connect_account`, `connect_api_key` in the config.
-}
-\details{
-If the API key is not available as an environment variable, a keyring entry is used.
-NOTE: The API key should only be an environment variable on the server. For local machines, set a
-keyring entry.
-
-If running on Connect, the server/account/key information is not used.
+Access the pins board that contains data for this app
 }

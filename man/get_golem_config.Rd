@@ -14,11 +14,11 @@ get_golem_config(
 \arguments{
 \item{value}{Config key}
 
+\item{pkg}{Package that holds the golem-config.yml (default = this package)}
+
 \item{config}{Active config name}
 
 \item{use_parent}{Forwarded to config::get}
-
-\item{package}{Target package (NULL = auto-detect a child package first, then fallback)}
 }
 \description{
 Universal golem config getter (shared)

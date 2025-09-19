@@ -7,7 +7,7 @@
 is_connect()
 }
 \value{
-Boolean. TRUE if the app is running on a Connect server.
+logical
 }
 \description{
 Is the app running on Connect?
