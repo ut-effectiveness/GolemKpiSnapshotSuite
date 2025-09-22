@@ -1,1 +1,14 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.navbar, .bslib-page-nav {
+  background-color: #003058;
+}
+
+.value-box .value {
+  font-weight: 600;
+}
+
+.desktop-only { }
 
