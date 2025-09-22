@@ -4,7 +4,7 @@
 \alias{mod_student_type_server}
 \title{main_tab Server Functions}
 \usage{
-mod_student_type_server(id, device_type = "Desktop", value_box_data, plot_data)
+mod_student_type_server(id, device_type, value_box_data, plot_data)
 }
 \arguments{
 \item{id}{Module id.}

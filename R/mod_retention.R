@@ -50,7 +50,7 @@ mod_retention_ui <- function(id) {
 #'
 
 mod_retention_server <- function(id,
-                                 device_type = "Desktop",
+                                 device_type,
                                  value_box_data,
                                  plot_data) {
   moduleServer(id, function(input, output, session) {
@@ -78,10 +78,10 @@ mod_retention_server <- function(id,
     })
 
     observe({
-      if (device_type == "Desktop") {
-        # Code that is specific for the desktop version
+      dev <- normalize_device(device_type)
+      if (dev == "desktop") {
+        # desktop-specific code
       } else {
-        # Hide any UI elements that are declared to be 'desktop-only'
         shinyjs::hide(selector = ".desktop-only")
       }
     })
@@ -131,8 +131,8 @@ mod_retention_server <- function(id,
     })
 
     output$plot_card <- renderUI({
-      req(device_type == "Desktop")
-
+      dev <- normalize_device(device_type)
+      req(dev == "desktop")
       bslib::card(
         bslib::card_header("Point-in-time retention rate for IPEDS first-time full-time Bachelor's degree seeking"),
         plotly::plotlyOutput(ns("line_plot_1"))

@@ -4,13 +4,7 @@
 \alias{mod_housing_server}
 \title{housing_tab server Function}
 \usage{
-mod_housing_server(
-  id,
-  device_type = "Desktop",
-  value_box_data,
-  dt_data,
-  comparison_mode
-)
+mod_housing_server(id, device_type, value_box_data, dt_data, comparison_mode)
 }
 \arguments{
 \item{id}{Module id.}

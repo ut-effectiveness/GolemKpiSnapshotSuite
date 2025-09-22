@@ -2,9 +2,15 @@
 % Please edit documentation in R/mod_ipeds.R
 \name{mod_ipeds_server}
 \alias{mod_ipeds_server}
-\title{main_tab Server Functions}
+\title{IPEDS module server}
 \usage{
-mod_ipeds_server(id, device_type = "Desktop", value_box_data, plot_data)
+mod_ipeds_server(
+  id,
+  device_type,
+  value_box_data,
+  plot_data,
+  custom_server = NULL
+)
 }
 \arguments{
 \item{id}{Module id.}
@@ -15,8 +21,8 @@ mod_ipeds_server(id, device_type = "Desktop", value_box_data, plot_data)
 
 \item{plot_data}{Reactive providing plotting data.}
 
-\item{custom_server}{Optional function to override server internals.}
+\item{custom_server}{Optional override (unused here).}
 }
 \description{
-main_tab Server Functions
+IPEDS module server
 }

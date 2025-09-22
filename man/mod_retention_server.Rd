@@ -4,7 +4,7 @@
 \alias{mod_retention_server}
 \title{main_tab Server Functions}
 \usage{
-mod_retention_server(id, device_type = "Desktop", value_box_data, plot_data)
+mod_retention_server(id, device_type, value_box_data, plot_data)
 }
 \arguments{
 \item{id}{Module id.}

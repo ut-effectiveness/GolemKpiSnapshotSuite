@@ -43,7 +43,7 @@ mod_housing_ui <- function(id) {
 #' @export
 
 mod_housing_server <- function(id,
-                               device_type = "Desktop",
+                               device_type,
                                value_box_data,
                                dt_data,
                                comparison_mode) {
@@ -77,27 +77,24 @@ mod_housing_server <- function(id,
 
 
     output$housing_dt <- DT::renderDT({
-      req(device_type == "Desktop")
-
+      dev <- normalize_device(device_type)
+      req(dev == "desktop")
       dat <- filtered_dt() %>%
-        dplyr::mutate(category = stringr::str_replace_all(.data$category, "_", " ") |> stringr::str_to_title()
-        ) |>
         dplyr::mutate(
-         occupancy_rate = round(.data$occupancy_rate * 100, 1)
+          category = stringr::str_replace_all(.data$category, "_", " ") |> stringr::str_to_title(),
+          occupancy_rate = round(.data$occupancy_rate * 100, 1)
         )
-
-      names(dat) <- stringr::str_to_title(stringr::str_replace_all(names(dat), "_", " "))  # adjust to match actual columns
-
+      names(dat) <- stringr::str_to_title(stringr::str_replace_all(names(dat), "_", " "))
       DT::datatable(
         dat,
         filter = "top",
         extensions = c("Buttons"),
         options = list(
           dom = "Bfrtip",
-          buttons = list(
-            list(extend = "excel", title = "housing_detail"),
-            list(extend = "csv", title = "housing_detail")
-          ),
+            buttons = list(
+              list(extend = "excel", title = "housing_detail"),
+              list(extend = "csv", title = "housing_detail")
+            ),
           pageLength = 25,
           lengthMenu = c(10, 25, 50, 100),
           scrollX = TRUE
@@ -106,17 +103,13 @@ mod_housing_server <- function(id,
     }, server = FALSE)
 
     output$table_card <- renderUI({
-      # On mobile hide the table (consistent w/ other modules hiding plots)
-      if (device_type != "Desktop") return(NULL)
+      dev <- normalize_device(device_type)
+      if (dev != "desktop") return(NULL)
       bslib::card(
         full_screen = TRUE,
         bslib::card_header("Building Detail"),
         DT::DTOutput(ns("housing_dt"))
       )
     })
-
-    # Optional debug block (kept hidden unless needed)
-    # output$housing_dbg <- renderPrint(str(head(dt_data())))
-
   })
 }
