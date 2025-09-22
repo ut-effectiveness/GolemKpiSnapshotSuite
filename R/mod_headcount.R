@@ -118,7 +118,8 @@ mod_headcount_server <- function(id,
     })
 
     output$plot_card <- renderUI({
-      req(device_type == "desktop")
+      dev <- normalize_device(device_type)
+      req(dev == "desktop")
 
       bslib::card(
         bslib::card_header("Point-in-time headcount for the total Univeristy "),
