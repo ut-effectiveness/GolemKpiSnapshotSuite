@@ -108,7 +108,7 @@ mod_housing_server <- function(id,
       bslib::card(
         full_screen = TRUE,
         bslib::card_header("Building Detail"),
-        DT::DTOutput(ns("housing_dt"))
+        DT::DTOutput(session$ns("housing_dt"))
       )
     })
   })
