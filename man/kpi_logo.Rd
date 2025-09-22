@@ -8,8 +8,6 @@ kpi_logo(file = "ie_logo.png", prefix = "gkss", ...)
 }
 \arguments{
 \item{file}{image filename in inst/app/www}
-
-\item{prefix}{resource prefix}
 }
 \description{
 Logo tag

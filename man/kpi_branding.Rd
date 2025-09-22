@@ -2,15 +2,13 @@
 % Please edit documentation in R/branding.R
 \name{kpi_branding}
 \alias{kpi_branding}
-\title{Shared KPI branding assets}
+\title{Shared branding assets}
 \usage{
-kpi_branding(prefix = "gkss", include_css = TRUE)
+kpi_branding(prefix = "gkss")
 }
 \arguments{
 \item{prefix}{resource path prefix}
-
-\item{include_css}{include custom.css & litera_style.css}
 }
 \description{
-Shared KPI branding assets
+Shared branding assets
 }
