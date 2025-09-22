@@ -48,7 +48,7 @@ mod_headcount_ui <- function(id, custom_ui = NULL) {
 #' @param custom_server Optional function to override server internals.
 #' @export
 mod_headcount_server <- function(id,
-                                 device_type = "Desktop",
+                                 device_type = "desktop",
                                  value_box_data,
                                  plot_data,
                                  custom_server = NULL) {
@@ -118,7 +118,7 @@ mod_headcount_server <- function(id,
     })
 
     output$plot_card <- renderUI({
-      req(device_type == "Desktop")
+      req(device_type == "desktop")
 
       bslib::card(
         bslib::card_header("Point-in-time headcount for the total Univeristy "),

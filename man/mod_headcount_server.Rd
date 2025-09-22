@@ -6,7 +6,7 @@
 \usage{
 mod_headcount_server(
   id,
-  device_type = "Desktop",
+  device_type = "desktop",
   value_box_data,
   plot_data,
   custom_server = NULL
