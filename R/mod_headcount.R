@@ -77,10 +77,10 @@ mod_headcount_server <- function(id,
     })
 
     observe({
-      if (device_type == "Desktop") {
-        # Code that is specific for the desktop version
+      dev <- normalize_device(device_type)
+      if (dev == "desktop") {
+        # desktop-specific code
       } else {
-        # Hide any UI elements that are declared to be 'desktop-only'
         shinyjs::hide(selector = ".desktop-only")
       }
     })
