@@ -2,7 +2,7 @@
 % Please edit documentation in R/app_config.R
 \name{get_golem_config}
 \alias{get_golem_config}
-\title{Read a config value from a CHILD package's golem-config.yml}
+\title{Read a config value from a child golem-config.yml}
 \usage{
 get_golem_config(
   value,
@@ -11,19 +11,6 @@ get_golem_config(
   use_parent = TRUE
 )
 }
-\arguments{
-\item{value}{Config key}
-
-\item{pkg}{Child package name (required)}
-
-\item{config}{Active config section}
-
-\item{use_parent}{Passed to config::get}
-}
-\value{
-The config value
-}
 \description{
-Parent package has no config; you MUST pass pkg (a child package name).
-Works for installed packages and dev (load_all) sources.
+Read a config value from a child golem-config.yml
 }
