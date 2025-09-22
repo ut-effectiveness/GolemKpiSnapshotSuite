@@ -86,6 +86,38 @@ mod_student_type_server <- function(id,
       }
     })
 
+    output$line_plot_2 <- plotly::renderPlotly({
+      x_var <- "Days to class start"
+      x_label <- "Days to class start"
+      y_var <- "metric_number"
+      y_label <- "Headcount"
+      y_formatter <- scales::comma_format()
+      group_var <- "Comparison"
+      color_var <- group_var
+      date_var <- "Date"
+      text_var <- "metric_text"
+
+      gg <- ggplot2::ggplot(
+        filtered_plot_data(),
+        ggplot2::aes(
+          x = .data[[x_var]], y = .data[[y_var]], group = .data[[group_var]],
+          date = .data[[date_var]], text = paste("Headcount:",.data[[text_var]])
+        )
+      ) +
+        ggplot2::geom_line(ggplot2::aes(color = .data[[color_var]]), size = .2) +
+        ggplot2::geom_point(ggplot2::aes(color = .data[[color_var]]), size = .5, alpha = .5) +
+        ggplot2::scale_color_manual(values = c("#003058", "#BA1C21"))+
+        ggplot2::scale_y_continuous(labels = y_formatter) +
+        ggplot2::labs(x = x_label, y = y_label) +
+        ggplot2::theme_minimal()
+
+      plotly::ggplotly(
+        gg,
+        tooltip = c("x", "text", "colour", "date")
+      ) |>
+        plotly::layout(hovermode = "x unified")
+    })
+
     output$plot_card <- renderUI({
       dev <- normalize_device(device_type)
       req(dev == "desktop")
