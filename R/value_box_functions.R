@@ -70,9 +70,9 @@ get_val_box_text_class_generic <- function(data, var_name, threshold = 0) {
   if (change > threshold) {
     "text-success"
   } else if (change < threshold) {
-    "text-primary"
+    "text-danger"          # was text-primary
   } else {
-    "text-light"
+    "text-secondary"       # better neutral than text-light
   }
 }
 
@@ -90,7 +90,7 @@ get_val_box_color_generic <- function(data, var_name, threshold = 0) {
   if (change > threshold) {
     "success"
   } else if (change < threshold) {
-    "primary"
+    "danger"               # was primary
   } else {
     "secondary"
   }
