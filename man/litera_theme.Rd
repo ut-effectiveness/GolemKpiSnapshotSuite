@@ -14,5 +14,5 @@ A bslib theme object using the Litera Bootswatch theme.
 \description{
 Litera Bootstrap Theme for Shiny UI
 
-Shared Litera theme (ported from mobileCabinetKpi)
+Shared Litera theme (same as mobileCabinetKpi)
 }

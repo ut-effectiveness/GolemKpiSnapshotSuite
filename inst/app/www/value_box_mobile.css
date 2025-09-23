@@ -1,18 +1,10 @@
-/* Base geometry */
-.card.value-box, .value-box {
+/* Matches mobileCabinetKpi value box appearance */
+.value-box, .card.value-box {
   border:1px solid #d6dce2;
   border-radius:10px;
   background:#fff;
   box-shadow:none;
   padding-bottom:.9rem;
-}
-
-/* Main metric */
-.value-box .value {
-  font-size:1.9rem;
-  font-weight:600;
-  line-height:1.2;
-  margin-bottom:.25rem;
 }
 
 /* Title line */
@@ -22,9 +14,18 @@
   font-size:.95rem;
   margin-bottom:.4rem;
   letter-spacing:.25px;
+  line-height:1.15;
 }
 
-/* Positive (any of these classes) */
+/* Main number */
+.value-box .value {
+  font-size:1.9rem;
+  font-weight:600;
+  line-height:1.2;
+  margin-bottom:.25rem;
+}
+
+/* Positive (any convention) */
 .value-box.up .value,
 .value-box.increase .value,
 .value-box.positive .value,
@@ -40,35 +41,17 @@
   color:#9b1c1c;
 }
 
-/* Solid highlight box (keep existing solid success background as-is) */
+/* Solid success highlight (first big box) */
 .value-box.bg-success {
-  background:#008a2d;
+  background:#007f2d;
   color:#fff;
-  border-color:#008a2d;
+  border-color:#007f2d;
 }
 .value-box.bg-success .value,
 .value-box.bg-success .value-box-title { color:#fff; }
 
-/* Ensure other success (if not bg-success) stays white background */
-.value-box.success-outline .value { color:#007a33; }
-
-/* Circle icon outlines (adjust stroke/fill if SVGs exist) */
-.value-box .value-box-showcase svg {
-  stroke-width:2;
-}
-
-/* Delta / subtitle text (assumes placed in a <p> or small) */
-.value-box p, .value-box small {
-  margin:0;
-  font-size:0.8rem;
-}
-
-/* Hover subtle lift (only for non-solid boxes) */
+/* Optional hover */
 .value-box:not(.bg-success):not(.bg-danger):hover {
   border-color:#00305866;
-}
-
-/* Ensure icons or showcase align nicely if used */
-.value-box .value-box-showcase {
-  margin-bottom:.5rem;
+  transition:border-color .15s;
 }

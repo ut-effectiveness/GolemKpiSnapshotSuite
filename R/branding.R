@@ -1,6 +1,6 @@
-#' Register parent assets & inject navbar + value box styling
+#' Register parent assets & inject full mobileCabinetKpi styling
 #' @param prefix resource path prefix
-#' @param include_css logical include the CSS bundle
+#' @param include_css logical
 #' @export
 kpi_branding <- function(prefix = "gkss", include_css = TRUE){
   root <- system.file("app","www", package = "GolemKpiSnapshotSuite")
@@ -11,7 +11,7 @@ kpi_branding <- function(prefix = "gkss", include_css = TRUE){
 
   deps <- list()
   if (include_css){
-    css_order <- c("navbar.css","litera_style.css","custom.css","value_box_mobile.css")
+    css_order <- c("litera_style.css", "custom.css", "value_box_mobile.css")
     present <- css_order[file.exists(file.path(root, css_order))]
     for (f in present){
       deps[[length(deps)+1]] <- htmltools::htmlDependency(
@@ -22,7 +22,6 @@ kpi_branding <- function(prefix = "gkss", include_css = TRUE){
       )
     }
   }
-
   htmltools::tagList(deps)
 }
 

@@ -2,15 +2,15 @@
 % Please edit documentation in R/branding.R
 \name{kpi_branding}
 \alias{kpi_branding}
-\title{Register parent assets & inject navbar + value box styling}
+\title{Register parent assets & inject full mobileCabinetKpi styling}
 \usage{
 kpi_branding(prefix = "gkss", include_css = TRUE)
 }
 \arguments{
 \item{prefix}{resource path prefix}
 
-\item{include_css}{logical include the CSS bundle}
+\item{include_css}{logical}
 }
 \description{
-Register parent assets & inject navbar + value box styling
+Register parent assets & inject full mobileCabinetKpi styling
 }
