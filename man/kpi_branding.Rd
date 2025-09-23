@@ -6,9 +6,6 @@
 \usage{
 kpi_branding(prefix = "gkss")
 }
-\arguments{
-\item{prefix}{resource path prefix}
-}
 \description{
 Shared branding assets
 }

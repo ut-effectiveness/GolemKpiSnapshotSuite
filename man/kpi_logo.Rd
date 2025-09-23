@@ -4,10 +4,7 @@
 \alias{kpi_logo}
 \title{Logo tag}
 \usage{
-kpi_logo(file = "ut.png", prefix = "gkss", ...)
-}
-\arguments{
-\item{file}{image filename in inst/app/www}
+kpi_logo(file = "ut.png", prefix = "gkss", height = "40px", alt = "Logo")
 }
 \description{
 Logo tag
