@@ -1,37 +1,35 @@
-/* Base card geometry */
-.value-box, .card.value-box {
-  border-radius: 10px;
-  border: 1px solid #d4d9de;
-  box-shadow: none;
-  background: #fff;
-  transition: background-color .15s, border-color .15s;
-  padding-bottom: .9rem;
+/* Base geometry */
+.card.value-box, .value-box {
+  border:1px solid #d6dce2;
+  border-radius:10px;
+  background:#fff;
+  box-shadow:none;
+  padding-bottom:.9rem;
 }
 
-/* Title */
+/* Main metric */
+.value-box .value {
+  font-size:1.9rem;
+  font-weight:600;
+  line-height:1.2;
+  margin-bottom:.25rem;
+}
+
+/* Title line */
 .value-box .value-box-title,
 .value-box .title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: .4rem;
-  letter-spacing: .25px;
-  line-height: 1.15;
+  font-weight:600;
+  font-size:.95rem;
+  margin-bottom:.4rem;
+  letter-spacing:.25px;
 }
 
-/* Main number */
-.value-box .value {
-  font-size: 1.9rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: .25rem;
-}
-
-/* Positive (multiple possible class conventions) */
+/* Positive (any of these classes) */
 .value-box.up .value,
 .value-box.increase .value,
 .value-box.positive .value,
 .value-box.bg-success .value {
-  color: #007a33;
+  color:#007a33;
 }
 
 /* Negative */
@@ -39,25 +37,24 @@
 .value-box.decrease .value,
 .value-box.negative .value,
 .value-box.bg-danger .value {
-  color: #a50000;
+  color:#9b1c1c;
 }
 
-/* Full background blocks when success/danger (if those classes present) */
+/* Solid highlight box (keep existing solid success background as-is) */
 .value-box.bg-success {
-  background:#007a33;
+  background:#008a2d;
   color:#fff;
-  border-color:#007a33;
-}
-.value-box.bg-danger {
-  background:#a50000;
-  color:#fff;
-  border-color:#a50000;
+  border-color:#008a2d;
 }
 .value-box.bg-success .value,
-.value-box.bg-danger .value,
-.value-box.bg-success .value-box-title,
-.value-box.bg-danger .value-box-title {
-  color:#fff;
+.value-box.bg-success .value-box-title { color:#fff; }
+
+/* Ensure other success (if not bg-success) stays white background */
+.value-box.success-outline .value { color:#007a33; }
+
+/* Circle icon outlines (adjust stroke/fill if SVGs exist) */
+.value-box .value-box-showcase svg {
+  stroke-width:2;
 }
 
 /* Delta / subtitle text (assumes placed in a <p> or small) */

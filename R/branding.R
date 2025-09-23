@@ -11,7 +11,7 @@ kpi_branding <- function(prefix = "gkss", include_css = TRUE){
 
   deps <- list()
   if (include_css){
-    css_order <- c("litera_style.css","custom.css","value_box_mobile.css")
+    css_order <- c("navbar.css","litera_style.css","custom.css","value_box_mobile.css")
     present <- css_order[file.exists(file.path(root, css_order))]
     for (f in present){
       deps[[length(deps)+1]] <- htmltools::htmlDependency(
@@ -23,14 +23,7 @@ kpi_branding <- function(prefix = "gkss", include_css = TRUE){
     }
   }
 
-  fav <- NULL
-  for (icon in c("favicon.png","favicon.ico","favicon.svg")){
-    if (file.exists(file.path(root, icon))){
-      fav <- htmltools::tags$link(rel="icon", href = sprintf("%s/%s", prefix, icon))
-      break
-    }
-  }
-  htmltools::tagList(deps, fav)
+  htmltools::tagList(deps)
 }
 
 #' Logo tag
