@@ -1,32 +1,55 @@
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: "Source Serif Pro", serif;
 }
 
-/* Let navbar_options() supply background color */
+/* Brand area */
+.app-brand {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.app-title-text {
+  font-family:"Josefin Sans", sans-serif;
+  font-weight:200;
+  font-size:22pt;
+  line-height:1;
+  margin-top:2px;
+}
+
+/* Let navbar_options supply background */
 .navbar, .bslib-page-nav {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  padding-top:.4rem;
 }
 
-/* Nav links (dark navy like mobile) */
-.navbar .nav-link,
+/* Tabs: remove text underline; single thick bottom bar on active */
 .bslib-page-nav .nav-link {
-  font-weight:600;
-  letter-spacing:.3px;
+  font-family:"Josefin Sans", sans-serif;
+  font-weight:400;
+  font-size:1.15rem;
   color:#103a53;
+  border-bottom:4px solid transparent;
+  margin-right:.75rem;
+  padding-bottom:.35rem;
+  text-decoration:none;
 }
-
-.navbar .nav-link:hover,
-.bslib-page-nav .nav-link:hover,
-.navbar .nav-link.active,
+.bslib-page-nav .nav-link:hover {
+  color:#103a53;
+  border-bottom:4px solid #103a53;
+}
 .bslib-page-nav .nav-link.active {
-  text-decoration:underline;
-  text-underline-offset:6px;
-  color:#103a53;
+  color:#000;
+  border-bottom:4px solid #000;
+  text-decoration:none;
 }
 
-/* Value box frame */
+/* Remove previous underline rules if any existed */
+.navbar .nav-link,
+.navbar .nav-link.active { text-decoration:none; }
+
+/* Value box layout */
 .value-box, .card.value-box {
   border:1px solid #d6dce2;
   border-radius:10px;
@@ -34,42 +57,42 @@ body {
   box-shadow:none;
 }
 
+/* Thinner typography (mobile look) */
 .value-box .value-box-title,
 .value-box .title {
-  font-weight:600;
+  font-family:"Josefin Sans", sans-serif;
+  font-weight:300;
   font-size:.95rem;
-  margin-bottom:.4rem;
   letter-spacing:.25px;
+  margin-bottom:.45rem;
 }
 
 .value-box .value {
-  font-size:1.9rem;
-  font-weight:600;
-  line-height:1.2;
-  margin-bottom:.25rem;
+  font-family:"Source Serif Pro", serif;
+  font-weight:400;
+  font-size:1.85rem;
+  line-height:1.15;
+  margin-bottom:.3rem;
 }
 
-/* Semantic text colors (force consistent shades) */
-.value-box .text-success { color:#007a33 !important; }
+.value-box p,
+.value-box small {
+  font-family:"Source Serif Pro", serif;
+  font-weight:300;
+  margin:0;
+}
+
+/* Semantic colors (keep your chosen shades) */
+.value-box .text-success { color:#00a56a !important; }
 .value-box .text-danger  { color:#9b1c1c !important; }
 
-/* Arrow / icon coloring (bsicons) */
+/* Icon coloring */
 .value-box .bi-arrow-up-circle,
-.value-box .bi-people,
-.value-box .bi-house {
-  color:#007a33;
-  stroke:#007a33;
-}
+.value-box .bi-people { color:#00a56a; }
+.value-box .bi-arrow-down-circle { color:#9b1c1c; }
 
-.value-box .bi-arrow-down-circle {
-  color:#9b1c1c;
-  stroke:#9b1c1c;
-}
-
-/* Ensure white text inside filled success boxes */
+/* Filled success box text stays white */
 .value-box.bg-success,
 .value-box.bg-success .value,
-.value-box.bg-success .value-box-title {
-  color:#fff !important;
-}
+.value-box.bg-success .value-box-title { color:#fff !important; }
 
