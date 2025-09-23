@@ -3,7 +3,23 @@ body {
 }
 
 .navbar, .bslib-page-nav {
-  background-color: #003058;
+  background:#003058;
+}
+
+.navbar .nav-link,
+.bslib-page-nav .nav-link {
+  font-weight:600;
+  letter-spacing:.3px;
+  color:#fff;
+}
+
+.navbar .nav-link:hover,
+.bslib-page-nav .nav-link:hover,
+.navbar .nav-link.active,
+.bslib-page-nav .nav-link.active {
+  text-decoration:underline;
+  text-underline-offset:6px;
+  color:#fff;
 }
 
 .desktop-only { }

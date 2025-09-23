@@ -182,3 +182,4 @@ get_value_box <- function(data, metric, lookup) {
     class = if (!is.null(config$class)) config$class(data) else NULL
   )
 }
+# (No raw CSS below this point)
