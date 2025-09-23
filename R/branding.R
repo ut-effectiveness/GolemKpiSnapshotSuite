@@ -1,10 +1,36 @@
-#' Shared branding assets
+#' Register parent asset path + (optionally) navbar CSS only
+#' @param prefix resource path prefix
+#' @param include_navbar logical include navbar.css
 #' @export
-kpi_branding <- function(prefix = "gkss"){
+kpi_branding <- function(prefix = "gkss", include_navbar = TRUE){
   root <- system.file("app","www", package = "GolemKpiSnapshotSuite")
-  if (!nzchar(root) || !dir.exists(root)) return(htmltools::tagList())
+  if (!nzchar(root) || !dir.exists(root))
+    return(htmltools::tagList())
+
   shiny::addResourcePath(prefix, root)
-  htmltools::tagList()
+
+  deps <- list()
+  if (include_navbar) {
+    css <- "navbar.css"
+    if (file.exists(file.path(root, css))) {
+      deps[[1]] <- htmltools::htmlDependency(
+        name = "gkss-navbar",
+        version = as.character(utils::packageVersion("GolemKpiSnapshotSuite")),
+        src = c(href = prefix),
+        stylesheet = css
+      )
+    }
+  }
+
+  # favicon (optional)
+  fav <- NULL
+  for (icon in c("favicon.png","favicon.ico","favicon.svg")){
+    if (file.exists(file.path(root, icon))){
+      fav <- htmltools::tags$link(rel="icon", href = sprintf("%s/%s", prefix, icon))
+      break
+    }
+  }
+  htmltools::tagList(deps, fav)
 }
 
 #' Logo tag

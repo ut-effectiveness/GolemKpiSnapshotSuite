@@ -1,0 +1,40 @@
+/* Navbar + base font only */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.navbar, .bslib-page-nav {
+  background-color:#003058;
+}
+
+.navbar .nav-link,
+.bslib-page-nav .nav-link {
+  font-weight:600;
+  letter-spacing:.3px;
+  color:#fff;
+}
+
+.navbar .nav-link:hover,
+.bslib-page-nav .nav-link:hover,
+.navbar .nav-link.active,
+.bslib-page-nav .nav-link.active {
+  color:#fff;
+  text-decoration:underline;
+  text-underline-offset:6px;
+}
+
+.navbar .navbar-brand,
+.bslib-page-nav .navbar-brand {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:1.25rem;
+  font-weight:600;
+  color:#fff;
+}
+
+.navbar img,
+.bslib-page-nav img {
+  vertical-align:middle;
+  display:inline-block;
+}

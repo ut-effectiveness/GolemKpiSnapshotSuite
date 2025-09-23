@@ -2,10 +2,15 @@
 % Please edit documentation in R/branding.R
 \name{kpi_branding}
 \alias{kpi_branding}
-\title{Shared branding assets}
+\title{Register parent asset path + (optionally) navbar CSS only}
 \usage{
-kpi_branding(prefix = "gkss")
+kpi_branding(prefix = "gkss", include_navbar = TRUE)
+}
+\arguments{
+\item{prefix}{resource path prefix}
+
+\item{include_navbar}{logical include navbar.css}
 }
 \description{
-Shared branding assets
+Register parent asset path + (optionally) navbar CSS only
 }
