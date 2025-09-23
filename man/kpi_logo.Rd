@@ -4,7 +4,7 @@
 \alias{kpi_logo}
 \title{Logo tag}
 \usage{
-kpi_logo(file = "ie_logo.png", prefix = "gkss", ...)
+kpi_logo(file = "ut.png", prefix = "gkss", ...)
 }
 \arguments{
 \item{file}{image filename in inst/app/www}
