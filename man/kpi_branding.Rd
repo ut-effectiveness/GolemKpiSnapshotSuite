@@ -4,7 +4,7 @@
 \alias{kpi_branding}
 \title{Register assets & inject cleaned CSS set}
 \usage{
-kpi_branding(prefix = "gkss", include_css = TRUE)
+kpi_branding(prefix = "gkss")
 }
 \description{
 Register assets & inject cleaned CSS set
