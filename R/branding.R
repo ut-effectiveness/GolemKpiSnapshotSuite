@@ -1,26 +1,21 @@
 #' Register assets & inject cleaned CSS set
 #' @export
-kpi_branding <- function(prefix = "gkss", include_css = TRUE){
+kpi_branding <- function(prefix = "gkss"){
   root <- system.file("app","www", package = "GolemKpiSnapshotSuite")
-  if (!nzchar(root) || !dir.exists(root))
-    return(htmltools::tagList())
-
+  if (!nzchar(root) || !dir.exists(root)) return(htmltools::tagList())
   shiny::addResourcePath(prefix, root)
 
-  deps <- list()
-  if (include_css){
-    css_order <- c("litera_style.css", "custom.css", "value_box_mobile.css")
-    present <- css_order[file.exists(file.path(root, css_order))]
-    for (f in present){
-      deps[[length(deps)+1]] <- htmltools::htmlDependency(
-        name = paste0("gkss-", sub("\\.css$","", f)),
-        version = as.character(utils::packageVersion("GolemKpiSnapshotSuite")),
-        src = c(href = prefix),
-        stylesheet = f
-      )
-    }
+  css <- "custom.css"
+  if (file.exists(file.path(root, css))) {
+    dep <- htmltools::htmlDependency(
+      name = "gkss-custom",
+      version = as.character(utils::packageVersion("GolemKpiSnapshotSuite")),
+      src = c(href = prefix),
+      stylesheet = css
+    )
+    return(htmltools::tagList(dep))
   }
-  htmltools::tagList(deps)
+  htmltools::tagList()
 }
 
 #' Logo tag

@@ -3,7 +3,7 @@ body {
 }
 
 .navbar, .bslib-page-nav {
-  background:#fff;
+  background:#003058;
 }
 
 .navbar .nav-link,
@@ -22,5 +22,28 @@ body {
   color:#fff;
 }
 
-.desktop-only { }
+.value-box, .card.value-box {
+  border:1px solid #d6dce2;
+  border-radius:10px;
+  box-shadow:none;
+}
+
+.value-box .value-box-title,
+.value-box .title {
+  font-weight:600;
+  font-size:.95rem;
+  margin-bottom:.4rem;
+  letter-spacing:.25px;
+}
+
+.value-box .value {
+  font-size:1.9rem;
+  font-weight:600;
+  line-height:1.2;
+  margin-bottom:.25rem;
+}
+
+/* Ensure Bootstrap semantic colors match desired shades */
+.value-box .text-success { color:#007a33 !important; }
+.value-box .text-danger  { color:#9b1c1c !important; }
 
