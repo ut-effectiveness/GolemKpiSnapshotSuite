@@ -1,5 +1,5 @@
 body {
-  font-family: "Source Serif Pro", serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Brand area */
@@ -16,79 +16,70 @@ body {
   margin-top:2px;
 }
 
-/* Let navbar_options supply background */
+/* We let navbar_options set the background color */
 .navbar, .bslib-page-nav {
-  background:transparent;
-  border:0;
-  box-shadow:none;
-  padding-top:.4rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding-top: .4rem;
 }
 
-/* Tabs: remove text underline; single thick bottom bar on active */
+/* Tabs */
 .bslib-page-nav .nav-link {
-  font-family:"Josefin Sans", sans-serif;
-  font-weight:400;
-  font-size:1.15rem;
-  color:#103a53;
-  border-bottom:4px solid transparent;
-  margin-right:.75rem;
-  padding-bottom:.35rem;
-  text-decoration:none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: #103a53;
+  border-bottom: 4px solid transparent;
+  text-decoration: none;
+  padding-bottom: .4rem;
+  margin-right: .9rem;
 }
 .bslib-page-nav .nav-link:hover {
-  color:#103a53;
-  border-bottom:4px solid #103a53;
+  border-bottom-color: #103a53;
+  color: #103a53;
 }
 .bslib-page-nav .nav-link.active {
-  color:#000;
-  border-bottom:4px solid #000;
-  text-decoration:none;
+  border-bottom-color: #000;
+  color: #000;
 }
 
 /* Remove previous underline rules if any existed */
 .navbar .nav-link,
 .navbar .nav-link.active { text-decoration:none; }
 
-/* Value box layout */
+/* Value boxes */
 .value-box, .card.value-box {
-  border:1px solid #d6dce2;
-  border-radius:10px;
-  background:#fff;
-  box-shadow:none;
+  border: 1px solid #d6dce2;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: none;
 }
 
-/* Thinner typography (mobile look) */
 .value-box .value-box-title,
 .value-box .title {
-  font-family:"Josefin Sans", sans-serif;
-  font-weight:300;
-  font-size:.95rem;
-  letter-spacing:.25px;
-  margin-bottom:.45rem;
+  font-weight: 400;        /* lighter */
+  font-size: .95rem;
+  letter-spacing: .25px;
+  margin-bottom: .45rem;
 }
 
 .value-box .value {
-  font-family:"Source Serif Pro", serif;
-  font-weight:400;
-  font-size:1.85rem;
-  line-height:1.15;
-  margin-bottom:.3rem;
+  font-weight: 400;        /* lighter number */
+  font-size: 1.85rem;
+  line-height: 1.15;
+  margin-bottom: .3rem;
 }
 
-.value-box p,
-.value-box small {
-  font-family:"Source Serif Pro", serif;
-  font-weight:300;
-  margin:0;
-}
+.value-box p { margin: 0; font-weight: 400; }
 
 /* Semantic colors (keep your chosen shades) */
-.value-box .text-success { color:#00a56a !important; }
+.value-box .text-success { color:#007a33 !important; }
 .value-box .text-danger  { color:#9b1c1c !important; }
 
-/* Icon coloring */
+/* Icons */
 .value-box .bi-arrow-up-circle,
-.value-box .bi-people { color:#00a56a; }
+.value-box .bi-people,
+.value-box .bi-house { color:#007a33; }
 .value-box .bi-arrow-down-circle { color:#9b1c1c; }
 
 /* Filled success box text stays white */
