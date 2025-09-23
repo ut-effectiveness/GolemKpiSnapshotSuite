@@ -4,23 +4,26 @@ kpi_branding <- function(prefix = "gkss"){
   root <- system.file("app","www", package = "GolemKpiSnapshotSuite")
   if (!nzchar(root) || !dir.exists(root)) return(htmltools::tagList())
 
-  # Register resource path only if not already present
-  current_paths <- names(shiny:::.globals$resourcePaths)
-  if (!prefix %in% current_paths) {
+  # Try add; if prefix exists, remove then re-add
+  ok <- try(shiny::addResourcePath(prefix, root), silent = TRUE)
+  if (inherits(ok, "try-error")) {
+    shiny::removeResourcePath(prefix)
     shiny::addResourcePath(prefix, root)
   }
 
   css <- "custom.css"
   if (file.exists(file.path(root, css))) {
-    dep <- htmltools::htmlDependency(
-      name = "gkss-custom",
-      version = as.character(utils::packageVersion("GolemKpiSnapshotSuite")),
-      src = c(href = prefix),
-      stylesheet = css
+    htmltools::tagList(
+      htmltools::htmlDependency(
+        name = "gkss-custom",
+        version = as.character(utils::packageVersion("GolemKpiSnapshotSuite")),
+        src = c(href = prefix),
+        stylesheet = css
+      )
     )
-    return(htmltools::tagList(dep))
+  } else {
+    htmltools::tagList()
   }
-  htmltools::tagList()
 }
 
 #' Logo tag
