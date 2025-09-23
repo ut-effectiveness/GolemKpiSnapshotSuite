@@ -32,7 +32,7 @@ kpi_branding <- function(prefix = "gkss"){
 #' Logo tag
 #' @param file image filename in inst/app/www
 #' @export
-kpi_logo <- function(file = "ie_logo.png", prefix = "gkss", ...){
+kpi_logo <- function(file = "ut.png", prefix = "gkss", ...){
   htmltools::tags$img(
     src = sprintf("/%s/%s", prefix, file),
     alt = "Logo",
