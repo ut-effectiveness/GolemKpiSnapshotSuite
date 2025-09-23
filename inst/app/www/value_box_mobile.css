@@ -1,0 +1,77 @@
+/* Base card geometry */
+.value-box, .card.value-box {
+  border-radius: 10px;
+  border: 1px solid #d4d9de;
+  box-shadow: none;
+  background: #fff;
+  transition: background-color .15s, border-color .15s;
+  padding-bottom: .9rem;
+}
+
+/* Title */
+.value-box .value-box-title,
+.value-box .title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: .4rem;
+  letter-spacing: .25px;
+  line-height: 1.15;
+}
+
+/* Main number */
+.value-box .value {
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: .25rem;
+}
+
+/* Positive (multiple possible class conventions) */
+.value-box.up .value,
+.value-box.increase .value,
+.value-box.positive .value,
+.value-box.bg-success .value {
+  color: #007a33;
+}
+
+/* Negative */
+.value-box.down .value,
+.value-box.decrease .value,
+.value-box.negative .value,
+.value-box.bg-danger .value {
+  color: #a50000;
+}
+
+/* Full background blocks when success/danger (if those classes present) */
+.value-box.bg-success {
+  background:#007a33;
+  color:#fff;
+  border-color:#007a33;
+}
+.value-box.bg-danger {
+  background:#a50000;
+  color:#fff;
+  border-color:#a50000;
+}
+.value-box.bg-success .value,
+.value-box.bg-danger .value,
+.value-box.bg-success .value-box-title,
+.value-box.bg-danger .value-box-title {
+  color:#fff;
+}
+
+/* Delta / subtitle text (assumes placed in a <p> or small) */
+.value-box p, .value-box small {
+  margin:0;
+  font-size:0.8rem;
+}
+
+/* Hover subtle lift (only for non-solid boxes) */
+.value-box:not(.bg-success):not(.bg-danger):hover {
+  border-color:#00305866;
+}
+
+/* Ensure icons or showcase align nicely if used */
+.value-box .value-box-showcase {
+  margin-bottom:.5rem;
+}

@@ -2,15 +2,15 @@
 % Please edit documentation in R/branding.R
 \name{kpi_branding}
 \alias{kpi_branding}
-\title{Register parent asset path + (optionally) navbar CSS only}
+\title{Register parent assets & inject navbar + value box styling}
 \usage{
-kpi_branding(prefix = "gkss", include_navbar = TRUE)
+kpi_branding(prefix = "gkss", include_css = TRUE)
 }
 \arguments{
 \item{prefix}{resource path prefix}
 
-\item{include_navbar}{logical include navbar.css}
+\item{include_css}{logical include the CSS bundle}
 }
 \description{
-Register parent asset path + (optionally) navbar CSS only
+Register parent assets & inject navbar + value box styling
 }
