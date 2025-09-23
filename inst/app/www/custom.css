@@ -3,7 +3,7 @@ body {
 }
 
 .navbar, .bslib-page-nav {
-  background:#003058;
+  background:#fff;
 }
 
 .navbar .nav-link,
@@ -19,7 +19,7 @@ body {
 .bslib-page-nav .nav-link.active {
   text-decoration:underline;
   text-underline-offset:6px;
-  color:#fff;
+  color:#darkblue;
 }
 
 .value-box, .card.value-box {
