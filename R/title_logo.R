@@ -1,19 +1,30 @@
 #' Title logo UI fragment
 #'
+#' @param file image filename inside inst/app/www
 #' @param height CSS height (character).
-#' @param class Additional CSS classes.
-#' @return A shiny tag.
+#' @param alt alt text
+#' @param prefix resource path prefix (auto-added if needed)
 #' @export
-title_logo <- function(height = "40px", class = NULL){
-  # Create a tagList to hold the logo elements
-  logo_tag <- tagList()
+title_logo <- function(file = "ie_logo.png",
+                       height = "40px",
+                       alt = "Logo",
+                       prefix = "gkss") {
 
-  # Add the main logo image
-  logo_tag <- tagAppendChild(logo_tag, tags$img(src = "www/logo.png", height = height, class = class))
+  # Locate installed file
+  p <- system.file("app","www", file, package = "GolemKpiSnapshotSuite")
+  if (!nzchar(p)) {
+    return(tags$span("[Logo missing]"))
+  }
 
-  # Add a title next to the logo
-  logo_tag <- tagAppendChild(logo_tag, tags$span("My Application", style = paste("height:", height, "; line-height:", height, ";"), class = class))
+  # Register resource path once
+  if (is.null(shiny::getResourcePaths()[[prefix]])) {
+    shiny::addResourcePath(prefix, system.file("app","www", package="GolemKpiSnapshotSuite"))
+  }
 
-  # Return the complete logo tag
-  logo_tag
+  tags$img(
+    src   = sprintf("%s/%s", prefix, file),
+    height = height,
+    alt    = alt,
+    style  = "vertical-align:middle;"
+  )
 }

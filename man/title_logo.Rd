@@ -4,15 +4,21 @@
 \alias{title_logo}
 \title{Title logo UI fragment}
 \usage{
-title_logo(height = "40px", class = NULL)
+title_logo(
+  file = "ie_logo.png",
+  height = "40px",
+  alt = "Logo",
+  prefix = "gkss"
+)
 }
 \arguments{
+\item{file}{image filename inside inst/app/www}
+
 \item{height}{CSS height (character).}
 
-\item{class}{Additional CSS classes.}
-}
-\value{
-A shiny tag.
+\item{alt}{alt text}
+
+\item{prefix}{resource path prefix (auto-added if needed)}
 }
 \description{
 Title logo UI fragment
