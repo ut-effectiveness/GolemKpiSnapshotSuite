@@ -2,54 +2,74 @@ body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Let page_navbar(bg=) control the banner color; no hard override */
+/* Let navbar_options() supply background color */
 .navbar, .bslib-page-nav {
   background: transparent;
-  box-shadow: none;
   border: 0;
+  box-shadow: none;
 }
 
-/* Navbar links */
+/* Nav links (dark navy like mobile) */
 .navbar .nav-link,
 .bslib-page-nav .nav-link {
-  font-weight: 600;
-  letter-spacing: .3px;
-  color: #0b3d62;              /* readable on light blue */
+  font-weight:600;
+  letter-spacing:.3px;
+  color:#103a53;
 }
 
 .navbar .nav-link:hover,
 .bslib-page-nav .nav-link:hover,
 .navbar .nav-link.active,
 .bslib-page-nav .nav-link.active {
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  color: #0b3d62;
+  text-decoration:underline;
+  text-underline-offset:6px;
+  color:#103a53;
 }
 
-/* Value box layout */
+/* Value box frame */
 .value-box, .card.value-box {
-  border: 1px solid #d6dce2;
-  border-radius: 10px;
-  box-shadow: none;
-  background: #fff;
+  border:1px solid #d6dce2;
+  border-radius:10px;
+  background:#fff;
+  box-shadow:none;
 }
 
 .value-box .value-box-title,
 .value-box .title {
-  font-weight: 600;
-  font-size: .95rem;
-  margin-bottom: .4rem;
-  letter-spacing: .25px;
+  font-weight:600;
+  font-size:.95rem;
+  margin-bottom:.4rem;
+  letter-spacing:.25px;
 }
 
 .value-box .value {
-  font-size: 1.9rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: .25rem;
+  font-size:1.9rem;
+  font-weight:600;
+  line-height:1.2;
+  margin-bottom:.25rem;
 }
 
-/* Semantic colors */
-.value-box .text-success { color: #007a33 !important; }
-.value-box .text-danger  { color: #9b1c1c !important; }
+/* Semantic text colors (force consistent shades) */
+.value-box .text-success { color:#007a33 !important; }
+.value-box .text-danger  { color:#9b1c1c !important; }
+
+/* Arrow / icon coloring (bsicons) */
+.value-box .bi-arrow-up-circle,
+.value-box .bi-people,
+.value-box .bi-house {
+  color:#007a33;
+  stroke:#007a33;
+}
+
+.value-box .bi-arrow-down-circle {
+  color:#9b1c1c;
+  stroke:#9b1c1c;
+}
+
+/* Ensure white text inside filled success boxes */
+.value-box.bg-success,
+.value-box.bg-success .value,
+.value-box.bg-success .value-box-title {
+  color:#fff !important;
+}
 
