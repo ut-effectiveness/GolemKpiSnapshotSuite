@@ -6,11 +6,6 @@
 \usage{
 housing_detailed_table()
 }
-\arguments{
-\item{dsn}{Optional data source name.}
-
-\item{context}{Optional context object.}
-}
 \value{
 A tibble / data.frame for display.
 }

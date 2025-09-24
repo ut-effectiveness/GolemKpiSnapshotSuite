@@ -6,11 +6,6 @@
 \usage{
 housing_pull_raw()
 }
-\arguments{
-\item{dsn}{Optional data source name.}
-
-\item{context}{Optional context object.}
-}
 \value{
 Raw housing data (tibble).
 }

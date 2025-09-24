@@ -4,7 +4,7 @@
 \alias{housing_value_box_data}
 \title{Build housing value box data}
 \usage{
-housing_value_box_data(dsn = "edify", context = "shiny")
+housing_value_box_data()
 }
 \arguments{
 \item{dsn}{Optional data source name / connection (if used).}
