@@ -4,9 +4,9 @@
 \alias{housing_value_box_data}
 \title{Convenience: return just the value box dataset}
 \usage{
-housing_value_box_data(dsn = NULL, context = NULL)
+housing_value_box_data(dsn = "edify", context = "shiny")
 
-housing_value_box_data(dsn = NULL, context = NULL)
+housing_value_box_data(dsn = "edify", context = "shiny")
 }
 \arguments{
 \item{dsn}{Optional data source name / connection (if used).}

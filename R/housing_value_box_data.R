@@ -4,6 +4,7 @@
 #' @param context Optional context/environment object.
 #' @return Tibble ready for value box creation.
 #' @export
-housing_value_box_data <- function(dsn = NULL, context = NULL){
-  # Function implementation goes here...
+housing_value_box_data <- function(dsn = "edify", context = "shiny") {
+  raw <- housing_pull_raw(dsn = dsn, context = context)
+  housing_build(raw)$final_housing_for_valueboxs
 }

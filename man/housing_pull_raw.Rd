@@ -4,9 +4,9 @@
 \alias{housing_pull_raw}
 \title{Pull raw housing data}
 \usage{
-housing_pull_raw(dsn = NULL, context = NULL)
+housing_pull_raw(dsn = "edify", context = "shiny")
 
-housing_pull_raw(dsn = NULL, context = NULL)
+housing_pull_raw(dsn = "edify", context = "shiny")
 }
 \arguments{
 \item{dsn}{Optional data source name.}
