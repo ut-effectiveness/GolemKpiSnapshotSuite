@@ -4,12 +4,7 @@
 \alias{get_housing_value_box_data}
 \title{Convenience wrapper to produce housing value box data}
 \usage{
-get_housing_value_box_data(dsn = NULL, context = NULL)
-}
-\arguments{
-\item{dsn}{Optional data source name / connection (if used).}
-
-\item{context}{Optional context/environment object.}
+get_housing_value_box_data()
 }
 \value{
 Tibble of value box metrics.

@@ -3,6 +3,7 @@
 S3method(import,file_importer)
 S3method(import,pin_importer)
 export(device)
+export(exec_pkg_sql)
 export(file_importer)
 export(get_data_from_pin)
 export(get_golem_config)

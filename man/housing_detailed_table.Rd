@@ -4,9 +4,9 @@
 \alias{housing_detailed_table}
 \title{Convenience: return detailed table}
 \usage{
-housing_detailed_table(dsn = "edify", context = "shiny")
+housing_detailed_table()
 
-housing_detailed_table(dsn = "edify", context = "shiny")
+housing_detailed_table()
 }
 \arguments{
 \item{dsn}{Optional data source name.}
