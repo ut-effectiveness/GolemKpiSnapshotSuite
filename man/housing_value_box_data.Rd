@@ -6,11 +6,6 @@
 \usage{
 housing_value_box_data()
 }
-\arguments{
-\item{dsn}{Optional data source name / connection (if used).}
-
-\item{context}{Optional context/environment object.}
-}
 \value{
 Tibble ready for value box creation.
 }
