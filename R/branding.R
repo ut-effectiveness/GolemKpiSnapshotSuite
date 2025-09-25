@@ -4,10 +4,8 @@ kpi_branding <- function(prefix = "gkss"){
   root <- system.file("app","www", package = "GolemKpiSnapshotSuite")
   if (!nzchar(root) || !dir.exists(root)) return(htmltools::tagList())
 
-  # Add resource path only once
-  if (!prefix %in% names(shiny:::.globals$resourcePaths)) {
-    shiny::addResourcePath(prefix, root)
-  }
+  # Add path (ignore warning if exists)
+  try(shiny::addResourcePath(prefix, root), silent = TRUE)
 
   css <- "custom.css"
   if (!file.exists(file.path(root, css))) return(htmltools::tagList())
