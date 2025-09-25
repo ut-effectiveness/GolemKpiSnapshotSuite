@@ -4,51 +4,31 @@
 #'
 #' Returns UT logo with correct dimensions for app title.
 #'
-#' @return The return value, if any, from executing the function.
 #' @export
-#' @noRd
-
-title_logo <- function(
-  text        = getOption("gkss.app_title", "Enrollment KPI"),
-  logo        = TRUE,
-  logo_src    = "www/ut.png",
-  logo_width  = 80,
-  logo_height = 40,
-  class       = "app-brand-left",
-  text_class  = "app-brand-text"
-){
-  img_tag <- if (isTRUE(logo)) shiny::tags$img(
-    src = logo_src,
-    width = logo_width,
-    height = logo_height,
-    alt = "Logo",
-    style = "display:block;margin:0;"
-  ) else NULL
-
+title_logo <- function(){
   shiny::div(
-    class = class,
     style = "display:flex;align-items:center;gap:10px;",
-    img_tag,
+    shiny::tags$img(
+      src = "www/ut.png",
+      width = 80, height = 40,
+      alt = "UT Logo",
+      style = "display:block;margin:0;"
+    ),
     shiny::span(
-      text,
-      class = text_class,
+      "Enrollment KPI",
       style = "font-size:22pt;font-weight:600;line-height:1;"
     )
   )
 }
 
-
-#' Litera Bootstrap Theme for Shiny UI
-#'
-#' @return A bslib theme object using the Litera Bootswatch theme.
+#' Simple Litera theme (system fonts only)
 #' @export
-#'
-litera_theme = function() {
+litera_theme <- function(){
   bslib::bs_theme(
     bootswatch = "litera",
-    bg = "#FFFFFF", fg = "#000",
-    primary = "#B5302A",
-    base_font = bslib::font_google("Source Serif Pro"),
-    heading_font = bslib::font_google("Josefin Sans", wght = 100)
+    primary    = "#003058",
+    secondary  = "#a50000",
+    base_font  = "Helvetica Neue, Arial, sans-serif",
+    heading_font = "Helvetica Neue, Arial, sans-serif"
   )
 }

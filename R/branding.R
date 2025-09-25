@@ -1,14 +1,15 @@
-#' Register assets & inject cleaned CSS set
+#' Inject package CSS (reverted simple version)
 #' @export
 kpi_branding <- function(prefix = "gkss"){
   root <- system.file("app","www", package = "GolemKpiSnapshotSuite")
   if (!nzchar(root) || !dir.exists(root)) return(htmltools::tagList())
 
-  # Re-register (safe)
-  try(shiny::removeResourcePath(prefix), silent = TRUE)
-  shiny::addResourcePath(prefix, root)
+  # Add resource path only once
+  if (!prefix %in% names(shiny:::.globals$resourcePaths)) {
+    shiny::addResourcePath(prefix, root)
+  }
 
-  css <- "custom.css"  # only file we rely on
+  css <- "custom.css"
   if (!file.exists(file.path(root, css))) return(htmltools::tagList())
 
   htmltools::tagList(

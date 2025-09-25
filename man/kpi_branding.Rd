@@ -2,10 +2,10 @@
 % Please edit documentation in R/branding.R
 \name{kpi_branding}
 \alias{kpi_branding}
-\title{Register assets & inject cleaned CSS set}
+\title{Inject package CSS (reverted simple version)}
 \usage{
 kpi_branding(prefix = "gkss")
 }
 \description{
-Register assets & inject cleaned CSS set
+Inject package CSS (reverted simple version)
 }

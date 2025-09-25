@@ -2,17 +2,14 @@
 % Please edit documentation in R/fct_style_utils.R, R/litera_theme.R
 \name{litera_theme}
 \alias{litera_theme}
-\title{Litera Bootstrap Theme for Shiny UI}
+\title{Simple Litera theme (system fonts only)}
 \usage{
 litera_theme()
 
 litera_theme()
 }
-\value{
-A bslib theme object using the Litera Bootswatch theme.
-}
 \description{
-Litera Bootstrap Theme for Shiny UI
+Simple Litera theme (system fonts only)
 
 Shared Litera theme (same as mobileCabinetKpi)
 }
