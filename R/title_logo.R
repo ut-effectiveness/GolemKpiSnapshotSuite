@@ -17,9 +17,7 @@ title_logo <- function(file = "ie_logo.png",
   }
 
   # Register resource path once
-  if (is.null(shiny::getResourcePaths()[[prefix]])) {
-    shiny::addResourcePath(prefix, system.file("app","www", package="GolemKpiSnapshotSuite"))
-  }
+  register_parent_assets(prefix)
 
   tags$img(
     src   = sprintf("%s/%s", prefix, file),
@@ -27,4 +25,13 @@ title_logo <- function(file = "ie_logo.png",
     alt    = alt,
     style  = "vertical-align:middle;"
   )
+}
+
+register_parent_assets <- function(prefix = "gkss"){
+  root <- system.file("app","www", package = "GolemKpiSnapshotSuite")
+  if (!nzchar(root) || !dir.exists(root)) return(invisible(FALSE))
+
+  # Safe attempt to add (ignore warning if already registered)
+  try(shiny::addResourcePath(prefix, root), silent = TRUE)
+  invisible(TRUE)
 }
