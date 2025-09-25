@@ -26,21 +26,40 @@ body {
 
 /* Tabs */
 .bslib-page-nav .nav-link {
-  font-weight: 500;
-  font-size: 1.05rem;
-  color: #103a53;
-  border-bottom: 4px solid transparent;
-  text-decoration: none;
-  padding-bottom: .4rem;
-  margin-right: .9rem;
+  position:relative;
+  padding:0 0 .50rem 0;
+  margin:0;
+  font-weight:500;
+  font-size:1.05rem;
+  color:#103a53;
+  text-decoration:none;
+  border:none;
 }
 .bslib-page-nav .nav-link:hover {
-  border-bottom-color: #103a53;
-  color: #103a53;
+  color:#000;
 }
 .bslib-page-nav .nav-link.active {
-  border-bottom-color: #000;
-  color: #000;
+  font-weight:600;
+  color:#000;
+}
+.bslib-page-nav .nav-link.active::after {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:4px;
+  background:#000;
+  border-radius:2px;
+}
+.bslib-page-nav .nav-link:not(.active)::after {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:4px;
+  background:transparent;
 }
 
 /* Remove previous underline rules if any existed */

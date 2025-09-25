@@ -1,6 +1,6 @@
 #' Shared Litera theme (same as mobileCabinetKpi)
 #' @export
-litera_theme <- function() {
+litera_theme <- function(){
   bslib::bs_theme(
     bootswatch   = "litera",
     primary      = "#003058",
