@@ -8,7 +8,7 @@
 #' @export
 #' @noRd
 
-title_logo = function(
+title_logo <- function(
   text        = getOption("gkss.app_title", "Enrollment KPI"),
   logo        = TRUE,
   logo_src    = "www/ut.png",
