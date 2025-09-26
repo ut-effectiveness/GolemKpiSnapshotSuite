@@ -10,27 +10,32 @@ title_logo(
   prefix = "gkss",
   logo_src = "ut.png",
   width = 80,
-  height = 40
+  height = 40,
+  container_width = 150,
+  text_font_size = "22pt",
+  text_offset_right = 80,
+  text_margin_top = 10
 )
 }
 \arguments{
-\item{text}{Title string (defaults to option gkss.app_title or "Enrollment KPI")}
+\item{text}{Title text.}
 
-\item{logo}{Include logo image}
+\item{logo}{Show logo (TRUE/FALSE).}
 
-\item{prefix}{Resource path prefix added by kpi_branding()}
+\item{prefix}{Resource path prefix registered by kpi_branding().}
 
-\item{logo_src}{Image filename in inst/app/www}
+\item{logo_src}{Logo filename under inst/app/www.}
 
-\item{width, height}{Logo dimensions (px)}
+\item{width, height}{Logo dimensions (px).}
 
-\item{class}{Wrapper div class}
+\item{container_width}{Outer div width (px) to mimic original fixed layout.}
 
-\item{text_class}{CSS class for title text}
+\item{text_font_size}{CSS font-size for title text.}
+
+\item{text_offset_right}{Distance (px) from right edge (kept from original).}
+
+\item{text_margin_top}{Additional top margin (px) for the text span.}
 }
 \description{
-Create title logo
-}
-\details{
-Returns UT logo with correct dimensions for app title
+Title logo component (mobile layout mimic)
 }
