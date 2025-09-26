@@ -10,11 +10,7 @@ title_logo(
   prefix = "gkss",
   logo_src = "ut.png",
   width = 80,
-  height = 40,
-  container_width = 150,
-  text_font_size = "22pt",
-  text_offset_right = 80,
-  text_margin_top = 10
+  height = 40
 )
 }
 \arguments{
@@ -26,15 +22,9 @@ title_logo(
 
 \item{logo_src}{Logo filename under inst/app/www.}
 
-\item{width, height}{Logo dimensions (px).}
+\item{width}{Logo width}
 
-\item{container_width}{Outer div width (px) to mimic original fixed layout.}
-
-\item{text_font_size}{CSS font-size for title text.}
-
-\item{text_offset_right}{Distance (px) from right edge (kept from original).}
-
-\item{text_margin_top}{Additional top margin (px) for the text span.}
+\item{hight}{Logo height}
 }
 \description{
 Title logo component (mobile layout mimic)

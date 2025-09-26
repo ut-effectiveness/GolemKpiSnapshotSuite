@@ -106,3 +106,35 @@ body {
 .value-box.bg-success .value,
 .value-box.bg-success .value-box-title { color:#fff !important; }
 
+/* Brand inline layout */
+.app-brand-inline {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:4px 0 2px 5px;
+}
+
+/* Make brand take full row; push nav tabs to next line */
+.bslib-page-nav .navbar-brand {
+  flex-basis:100%;
+  display:flex;
+  align-items:center;
+  margin-right:0;
+}
+
+/* Put tabs on second line under title+logo */
+.bslib-page-nav .navbar-nav {
+  flex-basis:100%;
+  margin-left:0;
+  margin-top:4px;
+  gap:1.6rem;
+}
+
+/* Optional: add a little bottom padding below brand line */
+.bslib-page-nav .navbar {
+  flex-wrap:wrap;
+}
+
+/* Ensure no overlap leftover from old absolute layout */
+.app-brand-inline span { position:static !important; }
+

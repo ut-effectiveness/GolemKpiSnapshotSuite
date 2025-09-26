@@ -6,44 +6,32 @@
 #' @param logo Show logo (TRUE/FALSE).
 #' @param prefix Resource path prefix registered by kpi_branding().
 #' @param logo_src Logo filename under inst/app/www.
-#' @param width,height Logo dimensions (px).
-#' @param container_width Outer div width (px) to mimic original fixed layout.
-#' @param text_font_size CSS font-size for title text.
-#' @param text_offset_right Distance (px) from right edge (kept from original).
-#' @param text_margin_top Additional top margin (px) for the text span.
+#' @param width Logo width
+#' @param hight Logo height
 #' @export
 title_logo <- function(
-  text              = getOption("gkss.app_title", "Enrollment KPI"),
-  logo              = TRUE,
-  prefix            = "gkss",
-  logo_src          = "ut.png",
-  width             = 80,
-  height            = 40,
-  container_width   = 150,
-  text_font_size    = "22pt",
-  text_offset_right = 80,
-  text_margin_top   = 10
+  text     = getOption("gkss.app_title", "Enrollment KPI"),
+  logo     = TRUE,
+  prefix   = "gkss",
+  logo_src = "ut.png",
+  width    = 80,
+  height   = 40
 ){
   img_tag <- if (isTRUE(logo)) shiny::tags$img(
     src   = sprintf("%s/%s", prefix, logo_src),
     width = width,
     height = height,
     alt   = "Logo",
-    style = "display:block;margin-left:5px;margin-top:0;margin-bottom:0;"
+    style = "display:block;margin:0;"
   ) else NULL
 
   shiny::div(
-    style = sprintf(
-      "position:relative;text-align:justify;width:%dpx;height:%dpx;display:block;",
-      container_width, height
-    ),
+    class = "app-brand-inline",
     img_tag,
     shiny::span(
       text,
-      style = sprintf(
-        "position:absolute;font-size:%s;right:%dpx;top:0;margin-top:%dpx;line-height:1;",
-        text_font_size, text_offset_right, text_margin_top
-      )
+      class = "app-brand-text",
+      style = "font-size:22pt;font-weight:600;line-height:1;"
     )
   )
 }
