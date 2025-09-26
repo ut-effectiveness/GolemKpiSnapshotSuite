@@ -6,25 +6,16 @@
 \usage{
 title_logo(
   text = getOption("gkss.app_title", "Enrollment KPI"),
-  logo = TRUE,
   prefix = "gkss",
   logo_src = "ut.png",
   width = 80,
-  height = 40
+  height = 40,
+  text_size = "22pt",
+  text_right = 80,
+  text_top = 0,
+  text_margin_top = 10,
+  container_width = 150
 )
-}
-\arguments{
-\item{text}{Title text.}
-
-\item{logo}{Show logo (TRUE/FALSE).}
-
-\item{prefix}{Resource path prefix registered by kpi_branding().}
-
-\item{logo_src}{Logo filename under inst/app/www.}
-
-\item{width}{Logo width}
-
-\item{hight}{Logo height}
 }
 \description{
 Title logo component (mobile layout mimic)
