@@ -2,21 +2,27 @@
 #'
 #' Create title logo
 #'
-#' Returns UT logo with correct dimensions for app title.
+#' Returns UT logo with correct dimensions for app title
 #'
+#' @param text Title string (defaults to option gkss.app_title or "Enrollment KPI")
+#' @param logo Include logo image
+#' @param logo_src Image filename in inst/app/www
+#' @param prefix Resource path prefix added by kpi_branding()
+#' @param width,height Logo dimensions (px)
+#' @param class Wrapper div class
+#' @param text_class CSS class for title text
 #' @export
+#'
 title_logo <- function(
-  text       = getOption("gkss.app_title", "Enrollment KPI"),
-  logo       = TRUE,
-  logo_src   = "ut.png",
-  prefix     = "gkss",
-  width      = 80,
-  height     = 40,
-  class      = "app-brand-left",
-  text_class = "app-brand-text"
+  text     = getOption("gkss.app_title", "Enrollment KPI"),
+  logo     = TRUE,
+  prefix   = "gkss",
+  logo_src = "ut.png",
+  width    = 80,
+  height   = 40
 ){
   img_tag <- if (isTRUE(logo)) shiny::tags$img(
-    src   = paste0(prefix, "/", logo_src),
+    src   = sprintf("%s/%s", prefix, logo_src),
     width = width,
     height = height,
     alt   = "Logo",
@@ -24,12 +30,10 @@ title_logo <- function(
   ) else NULL
 
   shiny::div(
-    class = class,
     style = "display:flex;align-items:center;gap:10px;",
     img_tag,
     shiny::span(
       text,
-      class = text_class,
       style = "font-size:22pt;font-weight:600;line-height:1;"
     )
   )

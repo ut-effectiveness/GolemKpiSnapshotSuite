@@ -26,10 +26,22 @@ title_logo(
 \item{alt}{alt text}
 
 \item{prefix}{resource path prefix (auto-added if needed)}
+
+\item{text}{Title string (defaults to option gkss.app_title or "Enrollment KPI")}
+
+\item{logo}{Include logo image}
+
+\item{logo_src}{Image filename in inst/app/www}
+
+\item{width, height}{Logo dimensions (px)}
+
+\item{class}{Wrapper div class}
+
+\item{text_class}{CSS class for title text}
 }
 \description{
 Create title logo
 }
 \details{
-Returns UT logo with correct dimensions for app title.
+Returns UT logo with correct dimensions for app title
 }
