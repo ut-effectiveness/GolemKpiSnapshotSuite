@@ -2,37 +2,35 @@
 #'
 #' Title logo component (mobile layout mimic)
 #'
+#' Mobile KPI style top bar (logo left, title right)
+#' @param text Title text
+#' @param prefix Resource path prefix (from kpi_branding)
+#' @param logo_src Logo file name in inst/app/www
+#' @param width,height Logo size (px)
+#' @param show_logo Show logo?
 #' @export
 title_logo <- function(
-    text     = getOption("gkss.app_title", "Enrollment KPI"),
-    prefix   = "gkss",
-    logo_src = "ut.png",
-    width    = 80,
-    height   = 40,
-    text_size = "22pt",
-    text_right = 80,   # px from right edge
-    text_top   = 0,    # px from top
-    text_margin_top = 10,
-    container_width = 150
+    text      = getOption("gkss.app_title", "Enrollment KPI"),
+    prefix    = "gkss",
+    logo_src  = "ut.png",
+    width     = 80,
+    height    = 40,
+    show_logo = TRUE
 ){
+  logo_tag <- if (isTRUE(show_logo)) shiny::tags$img(
+    src   = sprintf("%s/%s", prefix, logo_src),
+    width = width,
+    height = height,
+    alt   = "UT",
+    style = "display:block;margin:0;"
+  ) else NULL
+
   shiny::div(
-    style = sprintf(
-      "position:relative;text-align:justify;width:%dpx;height:%dpx;",
-      container_width, height
-    ),
-    shiny::tags$img(
-      style = "display:block;margin-left:5px;margin-top:0;margin-bottom:0;",
-      src   = sprintf("%s/%s", prefix, logo_src),
-      width = width,
-      height = height,
-      alt   = "UT Data"
-    ),
+    class = "ut-brand-bar",
+    logo_tag,
     shiny::span(
       text,
-      style = sprintf(
-        "position:absolute;font-size:%s;right:%dpx;top:%dpx;margin-top:%dpx;line-height:1;",
-        text_size, text_right, text_top, text_margin_top
-      )
+      class = "ut-brand-title"
     )
   )
 }

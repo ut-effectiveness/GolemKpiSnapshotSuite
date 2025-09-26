@@ -10,13 +10,23 @@ title_logo(
   logo_src = "ut.png",
   width = 80,
   height = 40,
-  text_size = "22pt",
-  text_right = 80,
-  text_top = 0,
-  text_margin_top = 10,
-  container_width = 150
+  show_logo = TRUE
 )
+}
+\arguments{
+\item{text}{Title text}
+
+\item{prefix}{Resource path prefix (from kpi_branding)}
+
+\item{logo_src}{Logo file name in inst/app/www}
+
+\item{width, height}{Logo size (px)}
+
+\item{show_logo}{Show logo?}
 }
 \description{
 Title logo component (mobile layout mimic)
+}
+\details{
+Mobile KPI style top bar (logo left, title right)
 }
