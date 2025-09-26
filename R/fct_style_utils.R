@@ -5,17 +5,31 @@
 #' Returns UT logo with correct dimensions for app title.
 #'
 #' @export
-title_logo <- function(){
+title_logo <- function(
+  text       = getOption("gkss.app_title", "Enrollment KPI"),
+  logo       = TRUE,
+  logo_src   = "ut.png",
+  prefix     = "gkss",
+  width      = 80,
+  height     = 40,
+  class      = "app-brand-left",
+  text_class = "app-brand-text"
+){
+  img_tag <- if (isTRUE(logo)) shiny::tags$img(
+    src   = paste0(prefix, "/", logo_src),
+    width = width,
+    height = height,
+    alt   = "Logo",
+    style = "display:block;margin:0;"
+  ) else NULL
+
   shiny::div(
+    class = class,
     style = "display:flex;align-items:center;gap:10px;",
-    shiny::tags$img(
-      src = "www/ut.png",
-      width = 80, height = 40,
-      alt = "UT Logo",
-      style = "display:block;margin:0;"
-    ),
+    img_tag,
     shiny::span(
-      "Enrollment KPI",
+      text,
+      class = text_class,
       style = "font-size:22pt;font-weight:600;line-height:1;"
     )
   )
