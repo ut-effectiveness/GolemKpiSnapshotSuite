@@ -1,0 +1,115 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# GolemKpiSnapshotSuite
+
+Shared Golem Modules and KPI Snapshot Utilities
+
+## Overview
+
+**GolemKpiSnapshotSuite** is a modular R package designed to enable
+rapid, maintainable development of KPI dashboards using the Golem
+framework. It is built around a project charter to make dashboard
+creation and iteration fast, easy, and robust for technical and
+non-technical users.
+
+### Objective
+
+To create a framework for rapid addition/modification of datapoints in
+Golem apps, supporting dashboard deployment to Posit server in 1-2 days,
+using YAML configuration and modular code.
+
+### Core Features & How They’re Implemented
+
+#### 1. Modular Dashboard Framework
+
+- Provides reusable Golem modules (`mod_headcount`, `mod_student_type`,
+  `mod_ipeds`, etc.) for both UI and server logic.
+- Child apps can compose dashboards by plugging in these modules.
+
+#### 2. YAML-Driven Configuration
+
+- All key settings (datapoints, layout, sources) are read from YAML via
+  `get_golem_config()`.
+- Supports environment-based config selection for easy dev/prod
+  switching.
+
+#### 3. Non-Developer Friendly
+
+- Datapoints and layouts can be changed by editing YAML, not code.
+
+- Child apps use wrapper functions to access their own config, e.g.:
+
+  ``` r
+  get_golem_config <- function(key, ...) {
+    GolemKpiSnapshotSuite::get_golem_config(key, pkg = "ChildApp", ...)
+  }
+  ```
+
+#### 4. Posit Server Deployment
+
+- Fully compatible with rsconnect/Posit server.
+- Includes deployment scripts and comments for rapid publish.
+
+#### 5. Documentation and Templates
+
+- Template UI/server files in `inst/templates/` provide ready-to-use
+  scaffolding.
+
+#### 6. Visual Aids and Rapid Updates
+
+- Value boxes functions are housed in the package.
+- DT/GT tables, ggplot/plotly graphs, bslib cards—all supported in
+  modules.
+- New datapoints/visuals can be added quickly via config and module
+  composition.
+
+#### 7. Data Integration
+
+- Pre built Modules support common data sources housed in project.
+- Built-in helpers for importing data from pins, APIs, or files (see
+  `pin_importer`, etc.).
+- Child apps can easily point to their own data sources.
+
+#### 8. Feedback and Iteration
+
+- The config-driven approach and modularity allow quick changes and
+  user-driven iteration.
+
+## Usage in Child Apps (Example: GolemEnrollmentManagementKpi)
+
+Child apps inherit and use the suite as follows:
+
+- Import modules directly for UI/server:
+
+  ``` r
+  GolemKpiSnapshotSuite::mod_headcount_ui("headcount_tab")
+  GolemKpiSnapshotSuite::mod_headcount_server("headcount_tab", ...)
+  ```
+
+- Use config wrappers to read YAML specific to the child:
+
+  ``` r
+  get_golem_config <- function(key, ...) {
+    GolemKpiSnapshotSuite::get_golem_config(key, pkg = "GolemEnrollmentManagementKpi", ...)
+  }
+  ```
+
+- Import data and configure value boxes, plots, and tables using
+  parent-provided functions.
+
+- Leverage shared branding/assets for UI consistency.
+
+## Getting Started
+
+1.  Clone the repo and install dependencies.
+2.  Use the dev scripts to scaffold a new dashboard.
+3.  Edit YAML configuration to define datapoints and layout.
+4.  Add desired modules to your app UI/server.
+5.  Update changes in Git Hub
+6.  Load changes in Child App
+7.  Deploy child App to Posit server.
+
+## Contributing
+
+Pull requests, Git Issues, feedback, and suggestions are welcome!
