@@ -22,16 +22,17 @@ title_logo <- function(
     width = width,
     height = height,
     alt   = "UT",
-    style = "display:block;margin:0;"
+    style = "display:inline-block;margin:0;"
   ) else NULL
 
   shiny::div(
-    class = "ut-brand-bar",
-    logo_tag,
+    class = "ut-brand-bar d-flex align-items-center justify-content-between w-100",
+    style = "gap: 12px;",
+    logo_tag, # Logo on the left
     shiny::span(
       text,
       class = "ut-brand-title"
-    )
+    ) # Title on the right
   )
 }
 
