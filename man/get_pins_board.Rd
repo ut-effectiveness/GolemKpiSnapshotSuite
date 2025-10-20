@@ -2,23 +2,27 @@
 % Please edit documentation in R/fct_connect.R
 \name{get_pins_board}
 \alias{get_pins_board}
-\title{Access the pins board that contains data for this app}
+\title{Get a pins board (RStudio Connect)}
 \usage{
-get_pins_board()
+get_pins_board(
+  config_file = NULL,
+  server_key = "connect_server",
+  account_key = "connect_account",
+  api_key_key = "connect_api_key"
+)
+}
+\arguments{
+\item{config_file}{Optional explicit path to a config file.}
+
+\item{server_key}{Key name for the Connect server URL in config.}
+
+\item{account_key}{Key name for the Connect account in config.}
+
+\item{api_key_key}{Key name for the Connect API key in config.}
 }
 \value{
-A {pins} board object
+A pins board object.
 }
 \description{
-If running outside of Connect, this requires the {pins} server/account/key to be defined in the
-{golem} config for this app. These values are typically stored in the environment variables
-`CONNECT_SERVER`, `CONNECT_ACCOUNT` and `RSCONNECT_SERVICE_USER_API_KEY`. They are accessed from
-the fields `connect_server`, `connect_account`, `connect_api_key` in the config.
-}
-\details{
-If the API key is not available as an environment variable, a keyring entry is used.
-NOTE: The API key should only be an environment variable on the server. For local machines, set a
-keyring entry.
-
-If running on Connect, the server/account/key information is not used.
+Resolves a golem-config.yml (child pkg) and builds a pins board via pins::board_connect().
 }

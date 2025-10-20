@@ -3,7 +3,7 @@
 #' @description A shiny Module.
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
-#'
+#' @import shiny
 #' @noRd
 #' @export
 #'
@@ -41,11 +41,16 @@ mod_retention_ui <- function(id) {
 
 #' main_tab Server Functions
 #'
-#' @importFrom   utils   read.csv
-#' @noRd
+#' @param id Module id.
+#' @param device_type Reactive or value describing device type.
+#' @param value_box_data Reactive providing value box data.
+#' @param plot_data Reactive providing plotting data.
+#' @param custom_server Optional function to override server internals.
+#' @export
+#'
 
 mod_retention_server <- function(id,
-                                 device_type = "Desktop",
+                                 device_type,
                                  value_box_data,
                                  plot_data) {
   moduleServer(id, function(input, output, session) {
@@ -73,10 +78,10 @@ mod_retention_server <- function(id,
     })
 
     observe({
-      if (device_type == "Desktop") {
-        # Code that is specific for the desktop version
+      dev <- normalize_device(device_type)
+      if (dev == "desktop") {
+        # desktop-specific code
       } else {
-        # Hide any UI elements that are declared to be 'desktop-only'
         shinyjs::hide(selector = ".desktop-only")
       }
     })
@@ -111,26 +116,27 @@ mod_retention_server <- function(id,
         tooltip = c("x", "text", "colour", "date"), dynamicTicks = FALSE
       ) |>
         plotly::layout(hovermode = "x unified",
-          margin = list(l = 50, r = 50, t = 60, b = 100),
-          annotations = list(text = "Cohorts were made in the fall of their repective academic years",
-            font = list(size = 8),
-            showarrow = FALSE,
-            x = 1,
-            y = -.4,
-            xref = 'paper',
-            yref = 'paper',
-            xanchor='right',
-            yanchor='auto',
-            xshift=0,
-            yshift=0))
+                       margin = list(l = 50, r = 50, t = 60, b = 100),
+                       annotations = list(text = "Cohorts were made in the fall of their repective academic years",
+                                          font = list(size = 8),
+                                          showarrow = FALSE,
+                                          x = 1,
+                                          y = -.4,
+                                          xref = 'paper',
+                                          yref = 'paper',
+                                          xanchor='right',
+                                          yanchor='auto',
+                                          xshift=0,
+                                          yshift=0))
     })
 
-    output$plot_card <- renderUI({
-      req(device_type == "Desktop")
 
+    output$plot_card <- renderUI({
+      dev <- normalize_device(device_type)
+      req(dev == "desktop")
       bslib::card(
         bslib::card_header("Point-in-time retention rate for IPEDS first-time full-time Bachelor's degree seeking"),
-        plotly::plotlyOutput(ns("line_plot_1"))
+        plotly::plotlyOutput(session$ns("line_plot_1"))
       )
     })
   })

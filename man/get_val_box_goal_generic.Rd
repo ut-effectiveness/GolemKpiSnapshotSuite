@@ -23,6 +23,9 @@ get_val_box_goal_generic(
 
 \item{pos}{a string to display if the value is below the threshold}
 }
+\value{
+a goal string
+}
 \description{
 Title
 }

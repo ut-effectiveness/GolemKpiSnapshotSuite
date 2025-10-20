@@ -1,47 +1,48 @@
 #' style_utils
 #'
-#' Create title logo
+#' Title logo component (mobile layout mimic)
 #'
-#' Returns UT logo with correct dimensions for app title.
-#'
-#' @return The return value, if any, from executing the function.
+#' Mobile KPI style top bar (logo left, title right)
+#' @param text Title text
+#' @param prefix Resource path prefix (from kpi_branding)
+#' @param logo_src Logo file name in inst/app/www
+#' @param width,height Logo size (px)
+#' @param show_logo Show logo?
 #' @export
-#' @noRd
+title_logo <- function(
+    text      = getOption("gkss.app_title", "Enrollment KPI"),
+    prefix    = "gkss",
+    logo_src  = "ut.png",
+    width     = 80,
+    height    = 40,
+    show_logo = TRUE
+){
+  logo_tag <- if (isTRUE(show_logo)) shiny::tags$img(
+    src   = sprintf("%s/%s", prefix, logo_src),
+    width = width,
+    height = height,
+    alt   = "UT",
+    style = "display:block;margin:0;"
+  ) else NULL
 
-title_logo = function() {
   shiny::div(
-    style = "text-align: justify; width:150;",
-    shiny::tags$img(
-      style = "display: block;
-               margin-left:5px;
-               margin-top:0px;
-               margin-bottom:0px",
-      src = "www/ut.png",
-      width = "80",
-      height = "40",
-      alt = "UT Data"
-    ),
-    shiny::span("Enrollment KPI",
-                style = "position: absolute;
-                font-size: 22pt;
-                right: 80px;
-                top: 0px;
-                margin-top: 10px;")
+    class = "ut-brand-bar",
+    logo_tag,
+    shiny::span(
+      text,
+      class = "ut-brand-title"
+    )
   )
 }
 
-
-#' Litera Bootstrap Theme for Shiny UI
-#'
-#' @return A bslib theme object using the Litera Bootswatch theme.
+#' Simple Litera theme (system fonts only)
 #' @export
-#'
-litera_theme = function() {
+litera_theme <- function(){
   bslib::bs_theme(
     bootswatch = "litera",
-    bg = "#FFFFFF", fg = "#000",
-    primary = "#B5302A",
-    base_font = bslib::font_google("Source Serif Pro"),
-    heading_font = bslib::font_google("Josefin Sans", wght = 100)
+    primary    = "#003058",
+    secondary  = "#a50000",
+    base_font  = "Helvetica Neue, Arial, sans-serif",
+    heading_font = "Helvetica Neue, Arial, sans-serif"
   )
 }

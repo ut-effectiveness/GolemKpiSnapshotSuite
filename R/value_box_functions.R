@@ -8,7 +8,7 @@
 #' @param neg a string to display if the value is above the threshold
 #' @param pos a string to display if the value is below the threshold
 #'
-#' @returns
+#' @returns a goal string
 #' @export
 #'
 get_val_box_goal_generic <- function(data, var_name, threshold = 0, neg = " still needed ", pos = " ahead ") {
@@ -70,9 +70,9 @@ get_val_box_text_class_generic <- function(data, var_name, threshold = 0) {
   if (change > threshold) {
     "text-success"
   } else if (change < threshold) {
-    "text-primary"
+    "text-danger"          # was text-primary
   } else {
-    "text-light"
+    "text-secondary"       # better neutral than text-light
   }
 }
 
@@ -90,7 +90,7 @@ get_val_box_color_generic <- function(data, var_name, threshold = 0) {
   if (change > threshold) {
     "success"
   } else if (change < threshold) {
-    "primary"
+    "danger"               # was primary
   } else {
     "secondary"
   }
@@ -182,3 +182,4 @@ get_value_box <- function(data, metric, lookup) {
     class = if (!is.null(config$class)) config$class(data) else NULL
   )
 }
+# (No raw CSS below this point)

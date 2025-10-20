@@ -48,6 +48,7 @@ import <- function(x, ...) {
   UseMethod("import", x)
 }
 
+#' @export
 import.file_importer <- function(x, ...) {
   path <- x[["path"]]
   ext <- tolower(tools::file_ext(path))
@@ -61,6 +62,7 @@ import.file_importer <- function(x, ...) {
   }
 }
 
+#' @export
 import.pin_importer <- function(x, ...) {
   pins::pin_read(board = x[["board"]], name = x[["name"]], ...)
 }

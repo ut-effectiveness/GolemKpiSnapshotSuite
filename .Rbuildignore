@@ -6,5 +6,5 @@ dev_history.R
 $run_dev.*
 ^.here$
 ^README\.md$
-^inst/
-^inst/templates/
+
+^README\.Rmd$

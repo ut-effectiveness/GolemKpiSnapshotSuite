@@ -1,1 +1,237 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Brand area */
+.app-brand {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.app-title-text {
+  font-family:"Josefin Sans", sans-serif;
+  font-weight:200;
+  font-size:22pt;
+  line-height:1;
+  margin-top:2px;
+}
+
+/* We let navbar_options set the background color */
+.navbar, .bslib-page-nav {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding-top: .4rem;
+}
+
+/* Tabs */
+.bslib-page-nav .nav-link {
+  position:relative;
+  padding:0 0 .50rem 0;
+  margin:0;
+  font-weight:500;
+  font-size:1.05rem;
+  color:#103a53;
+  text-decoration:none;
+  border:none;
+}
+.bslib-page-nav .nav-link:hover {
+  color:#000;
+}
+.bslib-page-nav .nav-link.active {
+  font-weight:600;
+  color:#000;
+}
+.bslib-page-nav .nav-link.active::after {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:4px;
+  background:#000;
+  border-radius:2px;
+}
+.bslib-page-nav .nav-link:not(.active)::after {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:4px;
+  background:transparent;
+}
+
+/* Remove previous underline rules if any existed */
+.navbar .nav-link,
+.navbar .nav-link.active { text-decoration:none; }
+
+/* Value boxes */
+.value-box, .card.value-box {
+  border: 1px solid #d6dce2;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.value-box .value-box-title,
+.value-box .title {
+  font-weight: 400;        /* lighter */
+  font-size: .95rem;
+  letter-spacing: .25px;
+  margin-bottom: .45rem;
+}
+
+.value-box .value {
+  font-weight: 400;        /* lighter number */
+  font-size: 1.85rem;
+  line-height: 1.15;
+  margin-bottom: .3rem;
+}
+
+.value-box p { margin: 0; font-weight: 400; }
+
+/* Semantic colors (keep your chosen shades) */
+.value-box .text-success { color:#007a33 !important; }
+.value-box .text-danger  { color:#9b1c1c !important; }
+
+/* Icons */
+.value-box .bi-arrow-up-circle,
+.value-box .bi-people,
+.value-box .bi-house { color:#007a33; }
+.value-box .bi-arrow-down-circle { color:#9b1c1c; }
+
+/* Filled success box text stays white */
+.value-box.bg-success,
+.value-box.bg-success .value,
+.value-box.bg-success .value-box-title { color:#fff !important; }
+
+/* Brand inline layout */
+.app-brand-inline {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:4px 0 2px 5px;
+}
+
+/* Make brand take full row; push nav tabs to next line */
+.bslib-page-nav .navbar-brand {
+  flex-basis:100%;
+  display:flex;
+  align-items:center;
+  margin-right:0;
+}
+
+/* Put tabs on second line under title+logo */
+.bslib-page-nav .navbar-nav {
+  flex-basis:100%;
+  margin-left:0;
+  margin-top:4px;
+  gap:1.6rem;
+}
+
+/* Optional: add a little bottom padding below brand line */
+.bslib-page-nav .navbar {
+  flex-wrap:wrap;
+}
+
+/* Ensure no overlap leftover from old absolute layout */
+.app-brand-inline span { position:static !important; }
+
+/* ---- Mobile KPI top bar mimic ---- */
+.ut-brand-bar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  padding:10px 18px 6px 14px;
+  box-sizing:border-box;
+  background:transparent;
+}
+
+.ut-brand-title {
+  font-size:24pt;
+  font-weight:600;
+  line-height:1;
+  margin:0;
+  white-space:nowrap;
+  letter-spacing:.5px;
+}
+
+/* Force navbar to wrap so nav list sits below brand bar */
+.bslib-page-nav .navbar {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  padding-top:0;
+  border-bottom:0;
+  background:var(--ut-bar-bg,#e6f4ff);
+}
+
+/* Brand (our title_logo) consumes full row */
+.bslib-page-nav .navbar-brand {
+  flex-basis:100%;
+  max-width:100%;
+  padding:0;
+  margin:0 0 6px 0;
+  display:block;
+}
+
+/* Nav list default (desktop) horizontal */
+.bslib-page-nav .navbar-nav {
+  flex-direction:row;
+  flex-wrap:nowrap;
+  gap:1.7rem;
+  margin:0 0 4px 0;
+  padding:0 14px;
+  width:auto;
+}
+
+/* Link styling + underline */
+.bslib-page-nav .nav-link {
+  position:relative;
+  padding:0 0 .55rem 0;
+  font-weight:500;
+  color:#303437;
+}
+.bslib-page-nav .nav-link:hover { color:#000; }
+.bslib-page-nav .nav-link.active { font-weight:600; }
+.bslib-page-nav .nav-link.active::after {
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:4px;
+  background:#000;
+  border-radius:2px;
+}
+
+/* --- Mobile breakpoint: stack nav vertically like original mobile KPI --- */
+@media (max-width: 900px){
+  .bslib-page-nav .navbar-nav {
+    flex-direction:column;
+    gap:0;
+    padding:0 14px 4px 14px;
+    width:100%;
+  }
+  .bslib-page-nav .nav-link {
+    padding:.35rem 0 .45rem 0;
+  }
+  .bslib-page-nav .nav-link.active::after {
+    left:0; right:auto; width:100%; height:4px;
+  }
+  /* Allow title to shrink earlier */
+  .ut-brand-title {
+    font-size:22pt;
+    white-space:normal;
+    text-align:right;
+  }
+}
+
+/* Extra narrow: reduce title size & allow horizontal scroll on nav if needed */
+@media (max-width: 600px){
+  .ut-brand-title { font-size:20pt; }
+  .bslib-page-nav .navbar-nav {
+    flex-direction:column;
+  }
+}
 

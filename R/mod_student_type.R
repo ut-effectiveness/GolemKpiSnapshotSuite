@@ -3,7 +3,6 @@
 #' @description A shiny Module.
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
-#'
 #' @noRd
 #' @export
 #'
@@ -41,9 +40,15 @@ mod_student_type_ui <- function(id) {
 
 #' main_tab Server Functions
 #'
-#' @noRd
+#' @param id Module id.
+#' @param device_type Reactive or value describing device type.
+#' @param value_box_data Reactive providing value box data.
+#' @param plot_data Reactive providing plotting data.
+#' @param custom_server Optional function to override server internals.
+#' @export
+#'
 mod_student_type_server <- function(id,
-                                    device_type = "Desktop",
+                                    device_type,
                                     value_box_data,
                                     plot_data) {
   moduleServer(id, function(input, output, session) {
@@ -73,10 +78,10 @@ mod_student_type_server <- function(id,
 
 
     observe({
-      if (device_type == "Desktop") {
-        # Code that is specific for the desktop version
+      dev <- normalize_device(device_type)
+      if (dev == "desktop") {
+        # desktop-specific code
       } else {
-        # Hide any UI elements that are declared to be 'desktop-only'
         shinyjs::hide(selector = ".desktop-only")
       }
     })
@@ -114,11 +119,11 @@ mod_student_type_server <- function(id,
     })
 
     output$plot_card <- renderUI({
-      req(device_type == "Desktop")
-
+      dev <- normalize_device(device_type)
+      req(dev == "desktop")
       bslib::card(
         bslib::card_header("Point-in-time headcount for incoming Freshman"),
-        plotly::plotlyOutput(ns("line_plot_2"))
+        plotly::plotlyOutput(session$ns("line_plot_2"))
       )
     })
   })
